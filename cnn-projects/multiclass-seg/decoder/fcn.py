@@ -180,7 +180,7 @@ def upsample_initilizer(dtype=dtypes.float32):
                 value = (1 - abs(x / f - c)) * (1 - abs(y / f - c))
                 bilinear[x, y] = value
         weights = np.zeros(shape)
-        
+
         for i in range(shape[2]):
             '''
             the next line of code is correct as given
@@ -274,7 +274,7 @@ def _compute_cross_entropy_mean(hypes, labels, softmax):
 
 def _compute_f1(hypes, labels, softmax, epsilon):
     num_classes = hypes['arch']['num_classes']
-    labels = tf.to_float(tf.reshape(labels, (-1, num_classes)))[:, 1]    
+    labels = tf.to_float(tf.reshape(labels, (-1, num_classes)))[:, 1]
     logits = softmax[:, 1]
     true_positive = tf.reduce_sum(labels*logits)
     false_positive = tf.reduce_sum((1-labels)*logits)
@@ -317,7 +317,7 @@ def evaluation(hypes, images, labels, decoded_logits, losses, global_step):
     num_classes = hypes['arch']['num_classes']
     logits = tf.reshape(decoded_logits['logits'], (-1, num_classes))
     labels = tf.reshape(labels, (-1, num_classes))
-    pred = tf.argmax(logits, dimension=1)
+    pred = tf.argmax(logits, axis=1)
     y = tf.argmax(labels, 1)
     Prec = []
     Rec = []
@@ -332,7 +332,7 @@ def evaluation(hypes, images, labels, decoded_logits, losses, global_step):
         f1.append((2 * Prec[-1] * Rec[-1]) / (Prec[-1] + Rec[-1]))
 
     accuracy = tf.reduce_mean(tf.cast(tf.equal(y, pred), tf.float32))
-    
+
     tf.summary.scalar("Accuracy", accuracy)
     tf.summary.scalar("c1_Precision", Prec[1])
     tf.summary.scalar("c1_Recall", Rec[1])
@@ -396,7 +396,7 @@ def evaluation(hypes, images, labels, decoded_logits, losses, global_step):
 #    # positive = tf.to_int32(tf.not_equal(pred, 1))
 #    # tp = tf.reduce_sum(positive*labels[:, 1])
 #    # fp = tf.reduce_sum(positive*labels[:, 0])
-    
+
 #    #accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(labels, 1), pred), tf.float32))
 #    #eval_list.append(('Acc. ', accuracy))
 

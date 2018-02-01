@@ -1,42 +1,42 @@
 {
   "model": {
-    "input_file": "..inputs//facade_seg_input.py",
+    "input_file": "../inputs/facade_seg_input.py",
     "architecture_file" : "../encoder/fcn8_vgg.py",
     "objective_file" : "../decoder/fcn.py",
     "optimizer_file" : "../optimizer/generic_optimizer.py",
     "evaluator_file" : "../evals/facade_eval.py"
   },
-  
+
   "path": ["../submodules"],
 
   "dirs": {
-    "cnn_dir": "PATH/dataset",    
+    "cnn_dir": "/home/lotte/Dropbox/phd/cnn/",
     "val_name": "eval",
     "test_name": "tests"
   },
 
-  "data": {    
-    "data_dir" : "PATH/dataset",            
+  "data": {
+    "data_dir" : "/home/lotte/Documents/data/facades-benchmark/ruemonge2014/",
     "train_file" : "list_full/train.txt",
     "val_file" : "list_full/val.txt",
     "tests_file" : "list_full/tests.txt"
   },
 
-  "colors": {    
+  "colors": {
     "roof" : [0, 0, 255],
     "sky" : [0, 255, 255],
-    "wall" : [255, 255, 0],	
+    "wall" : [255, 255, 0],
     "balcony" : [255, 0, 255],
     "window" : [255, 0, 0],
     "background" : [0, 0, 0],
     "door" : [255, 128, 0],
-    "shop" : [0, 255, 0]   
+    "shop" : [0, 255, 0]
   },
 
  "arch": {
-    "fcn_in": "pool5",    
+    "fcn_in": "pool5",
     "num_classes" : 8,
-    "image_size" : 50,    
+    "image_size" : 50,
     "weight": [2, 2, 2, 2, 2, 1, 2, 2],
     "num_channels" : 3,
     "whitening": false
@@ -63,20 +63,20 @@
 
   "logging": {
     "display_iter": 10,
-    "eval_iter": 1000,
+    "eval_iter": 500,
     "write_iter": 10,
-    "save_iter": 1000,
-    "image_iter": 1000
+    "save_iter": 500,
+    "image_iter": 500
   },
   "solver": {
       "opt": "Adam",
       "batch_size": 1,
-      "epsilon": 1e-09, 
+      "epsilon": 1e-09,
       "adam_eps": 1e-05,
       "threads": 4,
       "learning_rate": 1e-5,
       "learning_rate_step": null,
-      "max_steps": 10000
+      "max_steps": 1000
   },
   "use_fc_wd": true,
   "loss": "xentropy",
