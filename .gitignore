@@ -1,7 +1,12 @@
+**/RUNS/*
+**/hypes/*
+
 forks/*
 
 # C extensions
 *.so
+
+*.pyc
 
 # Distribution / packaging
 .Pythot

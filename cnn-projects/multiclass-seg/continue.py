@@ -87,9 +87,18 @@ else:
 def main(_):
     utils.set_gpus_to_use()
 
+   # try:
+   #     import tensorvision.train
+   #     import tensorflow_fcn.utils
+   # except ImportError:
+   #     logging.error("Could not import the submodules.")
+   #     logging.error("Please execute:"
+   #                   "'git submodule update --init --recursive'")
+   #     exit(1)
+
     if tf.app.flags.FLAGS.logdir is None:
         logging.error("No logdir is given.")
-        logging.info("Usage: python train.py --logdir rundir")
+        logging.info("Usage: python train.py --logdir dir")
         exit(1)
 
     logging.info("Continuing training...")

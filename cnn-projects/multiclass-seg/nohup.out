@@ -1,0 +1,1171 @@
+nohup: ignoring input
+2018-02-26 17:41:30,088 INFO No environment variable 'TV_PLUGIN_DIR' found. Set to '/home/lotte/tv-plugins'.
+2018-02-26 17:41:30,088 INFO No environment variable 'TV_STEP_SHOW' found. Set to '50'.
+2018-02-26 17:41:30,089 INFO No environment variable 'TV_STEP_EVAL' found. Set to '250'.
+2018-02-26 17:41:30,089 INFO No environment variable 'TV_STEP_WRITE' found. Set to '1000'.
+2018-02-26 17:41:30,089 INFO No environment variable 'TV_MAX_KEEP' found. Set to '10'.
+2018-02-26 17:41:30,089 INFO No environment variable 'TV_STEP_STR' found. Set to 'Step {step}/{total_steps}: loss = {loss_value:.2f}; lr = {lr_value:.2e}; {sec_per_batch:.3f} sec (per Batch); {examples_per_sec:.1f} imgs/sec'.
+2018-02-26 17:41:30,089 INFO Initializing GPUs, plugins and creating the essential folders
+2018-02-26 17:41:30,089 INFO f: <open file 'hypes/FacadeSeg_Adam_10k_ruemonge.json', mode 'r' at 0x7ff9f9bd5d20>
+2018-02-26 17:41:30,090 INFO Loading plugins
+2018-02-26 17:41:30,090 INFO Set dirs
+2018-02-26 17:41:30,090 INFO Add paths to sys
+2018-02-26 17:41:30,090 INFO Initialize training folder
+2018-02-26 17:41:30,092 INFO Start training
+2018-02-26 17:41:30,120 INFO ..Creating queues
+2018-02-26 17:41:30,142 INFO ..Building training graph
+2018-02-26 17:41:30,143 INFO ...Add Input Producers to the Graph
+2018-02-26 17:41:30,152 INFO ...Run inference on the encoder network
+2018-02-26 17:41:30,152 INFO ....Creating encoder inference
+2018-02-26 17:41:30,968 INFO .....Number of classes: 8
+2018-02-26 17:41:30,974 INFO .....Layer name: conv1_1
+2018-02-26 17:41:30,975 INFO .....Layer shape: (3, 3, 3, 64)
+2018-02-26 17:41:30,978 INFO .....Creating Summary for: conv1_1/filter
+2018-02-26 17:41:30,996 INFO .....Creating Summary for: conv1_1/biases
+2018-02-26 17:41:31,014 INFO .....Layer name: conv1_2
+2018-02-26 17:41:31,014 INFO .....Layer shape: (3, 3, 64, 64)
+2018-02-26 17:41:31,019 INFO .....Creating Summary for: conv1_2/filter
+2018-02-26 17:41:31,036 INFO .....Creating Summary for: conv1_2/biases
+2018-02-26 17:41:31,054 INFO .....Layer name: conv2_1
+2018-02-26 17:41:31,054 INFO .....Layer shape: (3, 3, 64, 128)
+2018-02-26 17:41:31,062 INFO .....Creating Summary for: conv2_1/filter
+2018-02-26 17:41:31,079 INFO .....Creating Summary for: conv2_1/biases
+2018-02-26 17:41:31,097 INFO .....Layer name: conv2_2
+2018-02-26 17:41:31,097 INFO .....Layer shape: (3, 3, 128, 128)
+2018-02-26 17:41:31,110 INFO .....Creating Summary for: conv2_2/filter
+2018-02-26 17:41:31,126 INFO .....Creating Summary for: conv2_2/biases
+2018-02-26 17:41:31,144 INFO .....Layer name: conv3_1
+2018-02-26 17:41:31,145 INFO .....Layer shape: (3, 3, 128, 256)
+2018-02-26 17:41:31,167 INFO .....Creating Summary for: conv3_1/filter
+2018-02-26 17:41:31,183 INFO .....Creating Summary for: conv3_1/biases
+2018-02-26 17:41:31,200 INFO .....Layer name: conv3_2
+2018-02-26 17:41:31,200 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:41:31,240 INFO .....Creating Summary for: conv3_2/filter
+2018-02-26 17:41:31,256 INFO .....Creating Summary for: conv3_2/biases
+2018-02-26 17:41:31,274 INFO .....Layer name: conv3_3
+2018-02-26 17:41:31,275 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:41:31,309 INFO .....Creating Summary for: conv3_3/filter
+2018-02-26 17:41:31,326 INFO .....Creating Summary for: conv3_3/biases
+2018-02-26 17:41:31,344 INFO .....Layer name: conv4_1
+2018-02-26 17:41:31,344 INFO .....Layer shape: (3, 3, 256, 512)
+2018-02-26 17:41:31,416 INFO .....Creating Summary for: conv4_1/filter
+2018-02-26 17:41:31,432 INFO .....Creating Summary for: conv4_1/biases
+2018-02-26 17:41:31,450 INFO .....Layer name: conv4_2
+2018-02-26 17:41:31,450 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:31,584 INFO .....Creating Summary for: conv4_2/filter
+2018-02-26 17:41:31,600 INFO .....Creating Summary for: conv4_2/biases
+2018-02-26 17:41:31,618 INFO .....Layer name: conv4_3
+2018-02-26 17:41:31,619 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:31,753 INFO .....Creating Summary for: conv4_3/filter
+2018-02-26 17:41:31,769 INFO .....Creating Summary for: conv4_3/biases
+2018-02-26 17:41:31,788 INFO .....Layer name: conv5_1
+2018-02-26 17:41:31,788 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:31,914 INFO .....Creating Summary for: conv5_1/filter
+2018-02-26 17:41:31,931 INFO .....Creating Summary for: conv5_1/biases
+2018-02-26 17:41:31,949 INFO .....Layer name: conv5_2
+2018-02-26 17:41:31,949 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:32,070 INFO .....Creating Summary for: conv5_2/filter
+2018-02-26 17:41:32,087 INFO .....Creating Summary for: conv5_2/biases
+2018-02-26 17:41:32,140 INFO .....Layer name: conv5_3
+2018-02-26 17:41:32,140 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:32,264 INFO .....Creating Summary for: conv5_3/filter
+2018-02-26 17:41:32,280 INFO .....Creating Summary for: conv5_3/biases
+2018-02-26 17:41:32,298 INFO .....Layer name: fc6
+2018-02-26 17:41:32,299 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-02-26 17:41:39,481 INFO .....Creating Summary for: fc6/weights
+2018-02-26 17:41:39,499 INFO .....Creating Summary for: fc6/biases
+2018-02-26 17:41:39,523 INFO .....Layer name: fc7
+2018-02-26 17:41:39,523 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-02-26 17:41:40,490 INFO .....Creating Summary for: fc7/weights
+2018-02-26 17:41:40,506 INFO .....Creating Summary for: fc7/biases
+2018-02-26 17:41:40,540 INFO .....Creating Summary for: score_fr/weights
+2018-02-26 17:41:40,556 INFO .....Creating Summary for: score_fr/biases
+2018-02-26 17:41:40,585 INFO .....Creating Summary for: upscore2/up_filter
+2018-02-26 17:41:40,609 INFO .....Creating Summary for: score_pool4/weights
+2018-02-26 17:41:40,626 INFO .....Creating Summary for: score_pool4/biases
+2018-02-26 17:41:40,655 INFO .....Creating Summary for: upscore4/up_filter
+2018-02-26 17:41:40,680 INFO .....Creating Summary for: score_pool3/weights
+2018-02-26 17:41:40,696 INFO .....Creating Summary for: score_pool3/biases
+2018-02-26 17:41:40,725 INFO .....Creating Summary for: upscore32/up_filter
+2018-02-26 17:41:40,755 INFO ...Build decoder on top of the logits
+2018-02-26 17:41:41,107 INFO ...Add to the Graph the Ops for loss calculation.
+2018-02-26 17:41:41,116 INFO ...Add to the Graph the Ops that calculate and apply gradients.
+2018-02-26 17:41:41,790 INFO ...Evaluating training graph
+2018-02-26 17:41:48,271 INFO ...Validating dataset
+2018-02-26 17:41:48,271 INFO ....Creating encoder inference
+2018-02-26 17:41:48,653 INFO .....Number of classes: 8
+2018-02-26 17:41:48,659 INFO .....Layer name: conv1_1
+2018-02-26 17:41:48,659 INFO .....Layer shape: (3, 3, 3, 64)
+2018-02-26 17:41:48,666 INFO .....Layer name: conv1_2
+2018-02-26 17:41:48,666 INFO .....Layer shape: (3, 3, 64, 64)
+2018-02-26 17:41:48,672 INFO .....Layer name: conv2_1
+2018-02-26 17:41:48,672 INFO .....Layer shape: (3, 3, 64, 128)
+2018-02-26 17:41:48,677 INFO .....Layer name: conv2_2
+2018-02-26 17:41:48,677 INFO .....Layer shape: (3, 3, 128, 128)
+2018-02-26 17:41:48,684 INFO .....Layer name: conv3_1
+2018-02-26 17:41:48,684 INFO .....Layer shape: (3, 3, 128, 256)
+2018-02-26 17:41:48,689 INFO .....Layer name: conv3_2
+2018-02-26 17:41:48,689 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:41:48,694 INFO .....Layer name: conv3_3
+2018-02-26 17:41:48,695 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:41:48,701 INFO .....Layer name: conv4_1
+2018-02-26 17:41:48,701 INFO .....Layer shape: (3, 3, 256, 512)
+2018-02-26 17:41:48,706 INFO .....Layer name: conv4_2
+2018-02-26 17:41:48,706 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:48,712 INFO .....Layer name: conv4_3
+2018-02-26 17:41:48,712 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:48,717 INFO .....Layer name: conv5_1
+2018-02-26 17:41:48,717 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:48,723 INFO .....Layer name: conv5_2
+2018-02-26 17:41:48,723 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:48,728 INFO .....Layer name: conv5_3
+2018-02-26 17:41:48,729 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:41:48,735 INFO .....Layer name: fc6
+2018-02-26 17:41:48,735 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-02-26 17:41:48,740 INFO .....Layer name: fc7
+2018-02-26 17:41:48,740 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-02-26 17:41:48,862 INFO ..Enqueuing files
+2018-02-26 17:41:49,082 INFO ..Initializing the training
+2018-02-26 17:41:49,082 INFO ..Starting the training step
+Shape of pool5:0[1 34 25 512]
+Shape of upscore2[1 67 50 8]
+Shape of upscore4[1 134 100 8]
+Shape of upscore32[1 1067 800 8]
+2018-02-26 17:42:06,693 INFO Step 0/10000: loss = 32.98; lr = 1.00e-05; 0.352 sec (per Batch); 2.8 imgs/sec
+2018-02-26 17:42:10,230 INFO       (raw)  Acc. : 0.14, xentropy: 30.31, weight_loss: 0.39, Overall Precision : 0.12, Overall Recall: 1.00, Overall F1 score : 0.20
+2018-02-26 17:42:10,230 INFO    (smooth)  Acc. : 0.14, xentropy: 30.31, weight_loss: 0.39, Overall Precision : 0.12, Overall Recall: 1.00, Overall F1 score : 0.20
+2018-02-26 17:44:03.787251: W tensorflow/core/kernels/queue_base.cc:277] _0_Queues/fifo_queue: Skipping cancelled enqueue attempt with queue not closed
+Traceback (most recent call last):
+  File "train.py", line 122, in <module>
+    tf.app.run()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 124, in run
+    _sys.exit(main(argv))
+  File "train.py", line 118, in main
+    train.do_training(hypes)
+  File "submodules/tensorvision/train.py", line 358, in do_training
+    run_training(hypes, modules, tv_graph, tv_sess)
+  File "submodules/tensorvision/train.py", line 213, in run_training
+    sess.run([tv_graph['train_op']], feed_dict=feed_dict)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 895, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1128, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1344, in _do_run
+    options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1350, in _do_call
+    return fn(*args)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1329, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+2018-02-26 17:45:46,541 INFO No environment variable 'TV_PLUGIN_DIR' found. Set to '/home/lotte/tv-plugins'.
+2018-02-26 17:45:46,541 INFO No environment variable 'TV_STEP_SHOW' found. Set to '50'.
+2018-02-26 17:45:46,541 INFO No environment variable 'TV_STEP_EVAL' found. Set to '250'.
+2018-02-26 17:45:46,541 INFO No environment variable 'TV_STEP_WRITE' found. Set to '1000'.
+2018-02-26 17:45:46,541 INFO No environment variable 'TV_MAX_KEEP' found. Set to '10'.
+2018-02-26 17:45:46,541 INFO No environment variable 'TV_STEP_STR' found. Set to 'Step {step}/{total_steps}: loss = {loss_value:.2f}; lr = {lr_value:.2e}; {sec_per_batch:.3f} sec (per Batch); {examples_per_sec:.1f} imgs/sec'.
+2018-02-26 17:45:46,542 INFO Initializing GPUs, plugins and creating the essential folders
+2018-02-26 17:45:46,542 INFO f: <open file 'hypes/FacadeSeg_Adam_10k_ruemonge.json', mode 'r' at 0x7f97e3515d20>
+2018-02-26 17:45:46,543 INFO Loading plugins
+2018-02-26 17:45:46,543 INFO Set dirs
+2018-02-26 17:45:46,543 INFO Add paths to sys
+2018-02-26 17:45:46,543 INFO Initialize training folder
+2018-02-26 17:45:46,545 INFO Start training
+2018-02-26 17:45:46,573 INFO ..Creating queues
+2018-02-26 17:45:46,597 INFO ..Building training graph
+2018-02-26 17:45:46,598 INFO ...Add Input Producers to the Graph
+2018-02-26 17:45:46,606 INFO ...Run inference on the encoder network
+2018-02-26 17:45:46,606 INFO ....Creating encoder inference
+2018-02-26 17:45:47,481 INFO .....Number of classes: 8
+2018-02-26 17:45:47,487 INFO .....Layer name: conv1_1
+2018-02-26 17:45:47,487 INFO .....Layer shape: (3, 3, 3, 64)
+2018-02-26 17:45:47,491 INFO .....Creating Summary for: conv1_1/filter
+2018-02-26 17:45:47,508 INFO .....Creating Summary for: conv1_1/biases
+2018-02-26 17:45:47,527 INFO .....Layer name: conv1_2
+2018-02-26 17:45:47,527 INFO .....Layer shape: (3, 3, 64, 64)
+2018-02-26 17:45:47,533 INFO .....Creating Summary for: conv1_2/filter
+2018-02-26 17:45:47,550 INFO .....Creating Summary for: conv1_2/biases
+2018-02-26 17:45:47,570 INFO .....Layer name: conv2_1
+2018-02-26 17:45:47,570 INFO .....Layer shape: (3, 3, 64, 128)
+2018-02-26 17:45:47,579 INFO .....Creating Summary for: conv2_1/filter
+2018-02-26 17:45:47,597 INFO .....Creating Summary for: conv2_1/biases
+2018-02-26 17:45:47,616 INFO .....Layer name: conv2_2
+2018-02-26 17:45:47,616 INFO .....Layer shape: (3, 3, 128, 128)
+2018-02-26 17:45:47,632 INFO .....Creating Summary for: conv2_2/filter
+2018-02-26 17:45:47,649 INFO .....Creating Summary for: conv2_2/biases
+2018-02-26 17:45:47,670 INFO .....Layer name: conv3_1
+2018-02-26 17:45:47,670 INFO .....Layer shape: (3, 3, 128, 256)
+2018-02-26 17:45:47,698 INFO .....Creating Summary for: conv3_1/filter
+2018-02-26 17:45:47,715 INFO .....Creating Summary for: conv3_1/biases
+2018-02-26 17:45:47,733 INFO .....Layer name: conv3_2
+2018-02-26 17:45:47,734 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:45:47,777 INFO .....Creating Summary for: conv3_2/filter
+2018-02-26 17:45:47,795 INFO .....Creating Summary for: conv3_2/biases
+2018-02-26 17:45:47,814 INFO .....Layer name: conv3_3
+2018-02-26 17:45:47,814 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:45:47,851 INFO .....Creating Summary for: conv3_3/filter
+2018-02-26 17:45:47,869 INFO .....Creating Summary for: conv3_3/biases
+2018-02-26 17:45:47,888 INFO .....Layer name: conv4_1
+2018-02-26 17:45:47,889 INFO .....Layer shape: (3, 3, 256, 512)
+2018-02-26 17:45:47,966 INFO .....Creating Summary for: conv4_1/filter
+2018-02-26 17:45:47,983 INFO .....Creating Summary for: conv4_1/biases
+2018-02-26 17:45:48,002 INFO .....Layer name: conv4_2
+2018-02-26 17:45:48,003 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:45:48,145 INFO .....Creating Summary for: conv4_2/filter
+2018-02-26 17:45:48,163 INFO .....Creating Summary for: conv4_2/biases
+2018-02-26 17:45:48,182 INFO .....Layer name: conv4_3
+2018-02-26 17:45:48,183 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:45:48,328 INFO .....Creating Summary for: conv4_3/filter
+2018-02-26 17:45:48,345 INFO .....Creating Summary for: conv4_3/biases
+2018-02-26 17:45:48,364 INFO .....Layer name: conv5_1
+2018-02-26 17:45:48,364 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:45:48,503 INFO .....Creating Summary for: conv5_1/filter
+2018-02-26 17:45:48,521 INFO .....Creating Summary for: conv5_1/biases
+2018-02-26 17:45:48,541 INFO .....Layer name: conv5_2
+2018-02-26 17:45:48,541 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:45:48,670 INFO .....Creating Summary for: conv5_2/filter
+2018-02-26 17:45:48,689 INFO .....Creating Summary for: conv5_2/biases
+2018-02-26 17:45:48,745 INFO .....Layer name: conv5_3
+2018-02-26 17:45:48,746 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:45:48,879 INFO .....Creating Summary for: conv5_3/filter
+2018-02-26 17:45:48,896 INFO .....Creating Summary for: conv5_3/biases
+2018-02-26 17:45:48,915 INFO .....Layer name: fc6
+2018-02-26 17:45:48,916 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-02-26 17:45:56,292 INFO .....Creating Summary for: fc6/weights
+2018-02-26 17:45:56,309 INFO .....Creating Summary for: fc6/biases
+2018-02-26 17:45:56,333 INFO .....Layer name: fc7
+2018-02-26 17:45:56,333 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-02-26 17:45:57,297 INFO .....Creating Summary for: fc7/weights
+2018-02-26 17:45:57,315 INFO .....Creating Summary for: fc7/biases
+2018-02-26 17:45:57,344 INFO .....Creating Summary for: score_fr/weights
+2018-02-26 17:45:57,360 INFO .....Creating Summary for: score_fr/biases
+2018-02-26 17:45:57,390 INFO .....Creating Summary for: upscore2/up_filter
+2018-02-26 17:45:57,414 INFO .....Creating Summary for: score_pool4/weights
+2018-02-26 17:45:57,430 INFO .....Creating Summary for: score_pool4/biases
+2018-02-26 17:45:57,459 INFO .....Creating Summary for: upscore4/up_filter
+2018-02-26 17:45:57,483 INFO .....Creating Summary for: score_pool3/weights
+2018-02-26 17:45:57,499 INFO .....Creating Summary for: score_pool3/biases
+2018-02-26 17:45:57,528 INFO .....Creating Summary for: upscore32/up_filter
+2018-02-26 17:45:57,550 INFO ...Build decoder on top of the logits
+2018-02-26 17:45:57,886 INFO ...Add to the Graph the Ops for loss calculation.
+2018-02-26 17:45:57,896 INFO ...Add to the Graph the Ops that calculate and apply gradients.
+2018-02-26 17:45:58,603 INFO ...Evaluating training graph
+2018-02-26 17:46:05,246 INFO ...Validating dataset
+2018-02-26 17:46:05,246 INFO ....Creating encoder inference
+2018-02-26 17:46:05,576 INFO .....Number of classes: 8
+2018-02-26 17:46:05,581 INFO .....Layer name: conv1_1
+2018-02-26 17:46:05,581 INFO .....Layer shape: (3, 3, 3, 64)
+2018-02-26 17:46:05,587 INFO .....Layer name: conv1_2
+2018-02-26 17:46:05,587 INFO .....Layer shape: (3, 3, 64, 64)
+2018-02-26 17:46:05,594 INFO .....Layer name: conv2_1
+2018-02-26 17:46:05,594 INFO .....Layer shape: (3, 3, 64, 128)
+2018-02-26 17:46:05,599 INFO .....Layer name: conv2_2
+2018-02-26 17:46:05,600 INFO .....Layer shape: (3, 3, 128, 128)
+2018-02-26 17:46:05,606 INFO .....Layer name: conv3_1
+2018-02-26 17:46:05,606 INFO .....Layer shape: (3, 3, 128, 256)
+2018-02-26 17:46:05,612 INFO .....Layer name: conv3_2
+2018-02-26 17:46:05,612 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:46:05,618 INFO .....Layer name: conv3_3
+2018-02-26 17:46:05,618 INFO .....Layer shape: (3, 3, 256, 256)
+2018-02-26 17:46:05,624 INFO .....Layer name: conv4_1
+2018-02-26 17:46:05,624 INFO .....Layer shape: (3, 3, 256, 512)
+2018-02-26 17:46:05,630 INFO .....Layer name: conv4_2
+2018-02-26 17:46:05,630 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:46:05,636 INFO .....Layer name: conv4_3
+2018-02-26 17:46:05,636 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:46:05,642 INFO .....Layer name: conv5_1
+2018-02-26 17:46:05,643 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:46:05,649 INFO .....Layer name: conv5_2
+2018-02-26 17:46:05,649 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:46:05,655 INFO .....Layer name: conv5_3
+2018-02-26 17:46:05,655 INFO .....Layer shape: (3, 3, 512, 512)
+2018-02-26 17:46:05,661 INFO .....Layer name: fc6
+2018-02-26 17:46:05,661 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-02-26 17:46:05,667 INFO .....Layer name: fc7
+2018-02-26 17:46:05,667 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-02-26 17:46:05,796 INFO ..Enqueuing files
+2018-02-26 17:46:06,033 INFO ..Initializing the training
+2018-02-26 17:46:06,033 INFO ..Starting the training step
+Shape of pool5:0[1 34 25 512]
+Shape of upscore2[1 67 49 8]
+Shape of upscore4[1 133 97 8]
+Shape of upscore32[1 1058 774 8]
+2018-02-26 17:46:23,769 INFO Step 0/10000: loss = 24.39; lr = 1.00e-05; 0.355 sec (per Batch); 2.8 imgs/sec
+2018-02-26 17:46:27,102 INFO       (raw)  Acc. : 0.13, xentropy: 25.78, weight_loss: 0.39, Overall Precision : 0.14, Overall Recall: nan, Overall F1 score : nan
+2018-02-26 17:46:27,102 INFO    (smooth)  Acc. : 0.13, xentropy: 25.78, weight_loss: 0.39, Overall Precision : 0.14, Overall Recall: nan, Overall F1 score : nan
+2018-02-26 21:28:59,310 INFO Step 1000/10000: loss = 9.50; lr = 1.00e-05; 267.044 sec (per Batch); 0.0 imgs/sec
+2018-02-26 21:29:02,737 INFO       (raw)  Acc. : 0.45, xentropy: 12.62, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-26 21:29:02,738 INFO    (smooth)  Acc. : 0.15, xentropy: 25.12, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 01:13:10,227 INFO Step 2000/10000: loss = 13.10; lr = 1.00e-05; 268.950 sec (per Batch); 0.0 imgs/sec
+2018-02-27 01:13:13,710 INFO       (raw)  Acc. : 0.52, xentropy: 11.41, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 01:13:13,711 INFO    (smooth)  Acc. : 0.17, xentropy: 24.43, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 04:59:40,276 INFO Step 3000/10000: loss = 6.67; lr = 1.00e-05; 271.731 sec (per Batch); 0.0 imgs/sec
+2018-02-27 04:59:43,853 INFO       (raw)  Acc. : 0.58, xentropy: 11.64, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 04:59:43,853 INFO    (smooth)  Acc. : 0.19, xentropy: 23.79, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 08:45:22,469 INFO Step 4000/10000: loss = 5.67; lr = 1.00e-05; 270.772 sec (per Batch); 0.0 imgs/sec
+2018-02-27 08:45:26,037 INFO       (raw)  Acc. : 0.64, xentropy: 9.26, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 08:45:26,037 INFO    (smooth)  Acc. : 0.21, xentropy: 23.07, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 12:32:05,857 INFO Step 5000/10000: loss = 6.02; lr = 1.00e-05; 271.996 sec (per Batch); 0.0 imgs/sec
+2018-02-27 12:32:09,433 INFO       (raw)  Acc. : 0.93, xentropy: 2.85, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 12:32:09,433 INFO    (smooth)  Acc. : 0.25, xentropy: 22.06, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 16:18:21,012 INFO Step 6000/10000: loss = 8.36; lr = 1.00e-05; 271.432 sec (per Batch); 0.0 imgs/sec
+2018-02-27 16:18:24,601 INFO       (raw)  Acc. : 0.88, xentropy: 4.31, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 16:18:24,601 INFO    (smooth)  Acc. : 0.28, xentropy: 21.17, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 20:04:37,517 INFO Step 7000/10000: loss = 5.92; lr = 1.00e-05; 271.458 sec (per Batch); 0.0 imgs/sec
+2018-02-27 20:04:40,969 INFO       (raw)  Acc. : 0.81, xentropy: 7.71, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 20:04:40,970 INFO    (smooth)  Acc. : 0.30, xentropy: 20.50, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 23:50:03,196 INFO Step 8000/10000: loss = 4.82; lr = 1.00e-05; 270.445 sec (per Batch); 0.0 imgs/sec
+2018-02-27 23:50:06,718 INFO       (raw)  Acc. : 0.76, xentropy: 6.12, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-02-27 23:50:06,719 INFO    (smooth)  Acc. : 0.33, xentropy: 19.78, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 10:51:46,114 INFO No environment variable 'TV_PLUGIN_DIR' found. Set to '/home/lotte/tv-plugins'.
+2018-03-01 10:51:46,117 INFO No environment variable 'TV_STEP_SHOW' found. Set to '50'.
+2018-03-01 10:51:46,117 INFO No environment variable 'TV_STEP_EVAL' found. Set to '250'.
+2018-03-01 10:51:46,117 INFO No environment variable 'TV_STEP_WRITE' found. Set to '1000'.
+2018-03-01 10:51:46,117 INFO No environment variable 'TV_MAX_KEEP' found. Set to '10'.
+2018-03-01 10:51:46,117 INFO No environment variable 'TV_STEP_STR' found. Set to 'Step {step}/{total_steps}: loss = {loss_value:.2f}; lr = {lr_value:.2e}; {sec_per_batch:.3f} sec (per Batch); {examples_per_sec:.1f} imgs/sec'.
+2018-03-01 10:51:46,118 INFO Initializing GPUs, plugins and creating the essential folders
+2018-03-01 10:51:46,118 INFO f: <open file 'hypes/FacadeSeg_Adam_10k_ruemonge.json', mode 'r' at 0x7f689dcd3d20>
+2018-03-01 10:51:46,124 INFO Loading plugins
+2018-03-01 10:51:46,124 INFO Set dirs
+2018-03-01 10:51:46,124 INFO Add paths to sys
+2018-03-01 10:51:46,124 INFO Initialize training folder
+2018-03-01 10:51:46,178 INFO Start training
+2018-03-01 10:51:46,747 INFO ..Creating queues
+2018-03-01 10:51:46,779 INFO ..Building training graph
+2018-03-01 10:51:46,780 INFO ...Add Input Producers to the Graph
+2018-03-01 10:51:46,809 INFO ...Run inference on the encoder network
+2018-03-01 10:51:46,809 INFO ....Creating encoder inference
+2018-03-01 10:51:48,058 INFO .....Number of classes: 8
+2018-03-01 10:51:48,063 INFO .....Layer name: conv1_1
+2018-03-01 10:51:48,063 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-01 10:51:48,067 INFO .....Creating Summary for: conv1_1/filter
+2018-03-01 10:51:48,134 INFO .....Creating Summary for: conv1_1/biases
+2018-03-01 10:51:48,151 INFO .....Layer name: conv1_2
+2018-03-01 10:51:48,151 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-01 10:51:48,157 INFO .....Creating Summary for: conv1_2/filter
+2018-03-01 10:51:48,174 INFO .....Creating Summary for: conv1_2/biases
+2018-03-01 10:51:48,196 INFO .....Layer name: conv2_1
+2018-03-01 10:51:48,196 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-01 10:51:48,204 INFO .....Creating Summary for: conv2_1/filter
+2018-03-01 10:51:48,220 INFO .....Creating Summary for: conv2_1/biases
+2018-03-01 10:51:48,236 INFO .....Layer name: conv2_2
+2018-03-01 10:51:48,236 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-01 10:51:48,248 INFO .....Creating Summary for: conv2_2/filter
+2018-03-01 10:51:48,263 INFO .....Creating Summary for: conv2_2/biases
+2018-03-01 10:51:48,281 INFO .....Layer name: conv3_1
+2018-03-01 10:51:48,281 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-01 10:51:48,300 INFO .....Creating Summary for: conv3_1/filter
+2018-03-01 10:51:48,316 INFO .....Creating Summary for: conv3_1/biases
+2018-03-01 10:51:48,333 INFO .....Layer name: conv3_2
+2018-03-01 10:51:48,334 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-01 10:51:48,366 INFO .....Creating Summary for: conv3_2/filter
+2018-03-01 10:51:48,382 INFO .....Creating Summary for: conv3_2/biases
+2018-03-01 10:51:48,399 INFO .....Layer name: conv3_3
+2018-03-01 10:51:48,399 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-01 10:51:48,430 INFO .....Creating Summary for: conv3_3/filter
+2018-03-01 10:51:48,446 INFO .....Creating Summary for: conv3_3/biases
+2018-03-01 10:51:48,463 INFO .....Layer name: conv4_1
+2018-03-01 10:51:48,463 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-01 10:51:48,530 INFO .....Creating Summary for: conv4_1/filter
+2018-03-01 10:51:48,545 INFO .....Creating Summary for: conv4_1/biases
+2018-03-01 10:51:48,562 INFO .....Layer name: conv4_2
+2018-03-01 10:51:48,562 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:51:48,688 INFO .....Creating Summary for: conv4_2/filter
+2018-03-01 10:51:48,705 INFO .....Creating Summary for: conv4_2/biases
+2018-03-01 10:51:48,723 INFO .....Layer name: conv4_3
+2018-03-01 10:51:48,723 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:51:48,848 INFO .....Creating Summary for: conv4_3/filter
+2018-03-01 10:51:48,864 INFO .....Creating Summary for: conv4_3/biases
+2018-03-01 10:51:48,881 INFO .....Layer name: conv5_1
+2018-03-01 10:51:48,881 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:51:49,003 INFO .....Creating Summary for: conv5_1/filter
+2018-03-01 10:51:49,019 INFO .....Creating Summary for: conv5_1/biases
+2018-03-01 10:51:49,037 INFO .....Layer name: conv5_2
+2018-03-01 10:51:49,037 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:51:49,157 INFO .....Creating Summary for: conv5_2/filter
+2018-03-01 10:51:49,173 INFO .....Creating Summary for: conv5_2/biases
+2018-03-01 10:51:49,219 INFO .....Layer name: conv5_3
+2018-03-01 10:51:49,219 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:51:49,338 INFO .....Creating Summary for: conv5_3/filter
+2018-03-01 10:51:49,354 INFO .....Creating Summary for: conv5_3/biases
+2018-03-01 10:51:49,371 INFO .....Layer name: fc6
+2018-03-01 10:51:49,371 INFO .....Layer shape: [7, 7, 512, 4096]
+Traceback (most recent call last):
+  File "train.py", line 122, in <module>
+    tf.app.run()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 124, in run
+    _sys.exit(main(argv))
+  File "train.py", line 118, in main
+    train.do_training(hypes)
+  File "submodules/tensorvision/train.py", line 338, in do_training
+    tv_graph = core.build_training_graph(hypes, queue, modules)
+  File "submodules/tensorvision/core.py", line 94, in build_training_graph
+    logits = encoder.inference(hypes, image, train=True)
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../encoder/fcn8_vgg.py", line 50, in inference
+    vgg_fcn.build(images, train=train, num_classes=hypes['arch']['num_classes'], random_init_fc8=True)
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/submodules/tensorflow_fcn/fcn8_vgg.py", line 107, in build
+    self.fc6 = self._fc_layer(self.pool5, "fc6")
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/submodules/tensorflow_fcn/fcn8_vgg.py", line 180, in _fc_layer
+    filt = self.get_fc_weight_reshape(name, [7, 7, 512, 4096])
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/submodules/tensorflow_fcn/fcn8_vgg.py", line 464, in get_fc_weight_reshape
+    var = tf.get_variable(name="weights", initializer=init, shape=shape)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py", line 1262, in get_variable
+    constraint=constraint)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py", line 1097, in get_variable
+    constraint=constraint)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py", line 435, in get_variable
+    constraint=constraint)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py", line 404, in _true_getter
+    use_resource=use_resource, constraint=constraint)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py", line 806, in _get_single_variable
+    constraint=constraint)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variables.py", line 229, in __init__
+    constraint=constraint)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variables.py", line 323, in _init_from_args
+    initial_value(), name="initial_value", dtype=dtype)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/variable_scope.py", line 780, in <lambda>
+    shape.as_list(), dtype=dtype, partition_info=partition_info)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/init_ops.py", line 200, in __call__
+    self.value, dtype=dtype, shape=shape, verify_shape=verify_shape)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/constant_op.py", line 218, in constant
+    name=name).outputs[0]
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 3162, in create_op
+    compute_device=compute_device)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 3216, in _create_op_helper
+    op.get_attr(key)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 2173, in get_attr
+    "No attr named '" + name + "' in " + str(self._node_def))
+KeyboardInterrupt
+2018-03-01 10:53:32,323 INFO No environment variable 'TV_PLUGIN_DIR' found. Set to '/home/lotte/tv-plugins'.
+2018-03-01 10:53:32,323 INFO No environment variable 'TV_STEP_SHOW' found. Set to '50'.
+2018-03-01 10:53:32,323 INFO No environment variable 'TV_STEP_EVAL' found. Set to '250'.
+2018-03-01 10:53:32,323 INFO No environment variable 'TV_STEP_WRITE' found. Set to '1000'.
+2018-03-01 10:53:32,323 INFO No environment variable 'TV_MAX_KEEP' found. Set to '10'.
+2018-03-01 10:53:32,323 INFO No environment variable 'TV_STEP_STR' found. Set to 'Step {step}/{total_steps}: loss = {loss_value:.2f}; lr = {lr_value:.2e}; {sec_per_batch:.3f} sec (per Batch); {examples_per_sec:.1f} imgs/sec'.
+2018-03-01 10:53:32,324 INFO Initializing GPUs, plugins and creating the essential folders
+2018-03-01 10:53:32,324 INFO f: <open file 'hypes/FacadeSeg_Adam_10k_ruemonge.json', mode 'r' at 0x7f7858293d20>
+2018-03-01 10:53:32,324 INFO Loading plugins
+2018-03-01 10:53:32,324 INFO Set dirs
+2018-03-01 10:53:32,325 INFO Add paths to sys
+2018-03-01 10:53:32,325 INFO Initialize training folder
+2018-03-01 10:53:32,326 INFO Start training
+2018-03-01 10:53:32,358 INFO ..Creating queues
+2018-03-01 10:53:32,380 INFO ..Building training graph
+2018-03-01 10:53:32,380 INFO ...Add Input Producers to the Graph
+2018-03-01 10:53:32,388 INFO ...Run inference on the encoder network
+2018-03-01 10:53:32,388 INFO ....Creating encoder inference
+2018-03-01 10:53:33,098 INFO .....Number of classes: 8
+2018-03-01 10:53:33,105 INFO .....Layer name: conv1_1
+2018-03-01 10:53:33,105 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-01 10:53:33,109 INFO .....Creating Summary for: conv1_1/filter
+2018-03-01 10:53:33,125 INFO .....Creating Summary for: conv1_1/biases
+2018-03-01 10:53:33,142 INFO .....Layer name: conv1_2
+2018-03-01 10:53:33,142 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-01 10:53:33,148 INFO .....Creating Summary for: conv1_2/filter
+2018-03-01 10:53:33,164 INFO .....Creating Summary for: conv1_2/biases
+2018-03-01 10:53:33,181 INFO .....Layer name: conv2_1
+2018-03-01 10:53:33,181 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-01 10:53:33,189 INFO .....Creating Summary for: conv2_1/filter
+2018-03-01 10:53:33,204 INFO .....Creating Summary for: conv2_1/biases
+2018-03-01 10:53:33,221 INFO .....Layer name: conv2_2
+2018-03-01 10:53:33,221 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-01 10:53:33,232 INFO .....Creating Summary for: conv2_2/filter
+2018-03-01 10:53:33,247 INFO .....Creating Summary for: conv2_2/biases
+2018-03-01 10:53:33,265 INFO .....Layer name: conv3_1
+2018-03-01 10:53:33,265 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-01 10:53:33,283 INFO .....Creating Summary for: conv3_1/filter
+2018-03-01 10:53:33,298 INFO .....Creating Summary for: conv3_1/biases
+2018-03-01 10:53:33,315 INFO .....Layer name: conv3_2
+2018-03-01 10:53:33,315 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-01 10:53:33,348 INFO .....Creating Summary for: conv3_2/filter
+2018-03-01 10:53:33,364 INFO .....Creating Summary for: conv3_2/biases
+2018-03-01 10:53:33,381 INFO .....Layer name: conv3_3
+2018-03-01 10:53:33,381 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-01 10:53:33,411 INFO .....Creating Summary for: conv3_3/filter
+2018-03-01 10:53:33,427 INFO .....Creating Summary for: conv3_3/biases
+2018-03-01 10:53:33,445 INFO .....Layer name: conv4_1
+2018-03-01 10:53:33,445 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-01 10:53:33,509 INFO .....Creating Summary for: conv4_1/filter
+2018-03-01 10:53:33,526 INFO .....Creating Summary for: conv4_1/biases
+2018-03-01 10:53:33,542 INFO .....Layer name: conv4_2
+2018-03-01 10:53:33,543 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:33,666 INFO .....Creating Summary for: conv4_2/filter
+2018-03-01 10:53:33,682 INFO .....Creating Summary for: conv4_2/biases
+2018-03-01 10:53:33,700 INFO .....Layer name: conv4_3
+2018-03-01 10:53:33,700 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:33,825 INFO .....Creating Summary for: conv4_3/filter
+2018-03-01 10:53:33,840 INFO .....Creating Summary for: conv4_3/biases
+2018-03-01 10:53:33,858 INFO .....Layer name: conv5_1
+2018-03-01 10:53:33,858 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:33,978 INFO .....Creating Summary for: conv5_1/filter
+2018-03-01 10:53:33,993 INFO .....Creating Summary for: conv5_1/biases
+2018-03-01 10:53:34,010 INFO .....Layer name: conv5_2
+2018-03-01 10:53:34,010 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:34,127 INFO .....Creating Summary for: conv5_2/filter
+2018-03-01 10:53:34,143 INFO .....Creating Summary for: conv5_2/biases
+2018-03-01 10:53:34,209 INFO .....Layer name: conv5_3
+2018-03-01 10:53:34,209 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:34,328 INFO .....Creating Summary for: conv5_3/filter
+2018-03-01 10:53:34,344 INFO .....Creating Summary for: conv5_3/biases
+2018-03-01 10:53:34,361 INFO .....Layer name: fc6
+2018-03-01 10:53:34,361 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-03-01 10:53:41,054 INFO .....Creating Summary for: fc6/weights
+2018-03-01 10:53:41,070 INFO .....Creating Summary for: fc6/biases
+2018-03-01 10:53:41,092 INFO .....Layer name: fc7
+2018-03-01 10:53:41,092 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-03-01 10:53:41,997 INFO .....Creating Summary for: fc7/weights
+2018-03-01 10:53:42,014 INFO .....Creating Summary for: fc7/biases
+2018-03-01 10:53:42,041 INFO .....Creating Summary for: score_fr/weights
+2018-03-01 10:53:42,056 INFO .....Creating Summary for: score_fr/biases
+2018-03-01 10:53:42,085 INFO .....Creating Summary for: upscore2/up_filter
+2018-03-01 10:53:42,107 INFO .....Creating Summary for: score_pool4/weights
+2018-03-01 10:53:42,122 INFO .....Creating Summary for: score_pool4/biases
+2018-03-01 10:53:42,149 INFO .....Creating Summary for: upscore4/up_filter
+2018-03-01 10:53:42,172 INFO .....Creating Summary for: score_pool3/weights
+2018-03-01 10:53:42,188 INFO .....Creating Summary for: score_pool3/biases
+2018-03-01 10:53:42,215 INFO .....Creating Summary for: upscore32/up_filter
+2018-03-01 10:53:42,245 INFO ...Build decoder on top of the logits
+2018-03-01 10:53:43,886 INFO ...Add to the Graph the Ops for loss calculation.
+2018-03-01 10:53:43,895 INFO ...Add to the Graph the Ops that calculate and apply gradients.
+2018-03-01 10:53:44,540 INFO ...Evaluating training graph
+2018-03-01 10:53:50,314 INFO ...Validating dataset
+2018-03-01 10:53:50,314 INFO ....Creating encoder inference
+2018-03-01 10:53:50,760 INFO .....Number of classes: 8
+2018-03-01 10:53:50,766 INFO .....Layer name: conv1_1
+2018-03-01 10:53:50,766 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-01 10:53:50,771 INFO .....Layer name: conv1_2
+2018-03-01 10:53:50,771 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-01 10:53:50,778 INFO .....Layer name: conv2_1
+2018-03-01 10:53:50,778 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-01 10:53:50,783 INFO .....Layer name: conv2_2
+2018-03-01 10:53:50,783 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-01 10:53:50,789 INFO .....Layer name: conv3_1
+2018-03-01 10:53:50,789 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-01 10:53:50,794 INFO .....Layer name: conv3_2
+2018-03-01 10:53:50,795 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-01 10:53:50,800 INFO .....Layer name: conv3_3
+2018-03-01 10:53:50,800 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-01 10:53:50,806 INFO .....Layer name: conv4_1
+2018-03-01 10:53:50,806 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-01 10:53:50,812 INFO .....Layer name: conv4_2
+2018-03-01 10:53:50,812 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:50,817 INFO .....Layer name: conv4_3
+2018-03-01 10:53:50,817 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:50,823 INFO .....Layer name: conv5_1
+2018-03-01 10:53:50,823 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:50,829 INFO .....Layer name: conv5_2
+2018-03-01 10:53:50,829 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:50,834 INFO .....Layer name: conv5_3
+2018-03-01 10:53:50,834 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-01 10:53:50,840 INFO .....Layer name: fc6
+2018-03-01 10:53:50,840 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-03-01 10:53:50,845 INFO .....Layer name: fc7
+2018-03-01 10:53:50,845 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-03-01 10:53:50,965 INFO ..Enqueuing files
+2018-03-01 10:53:51,394 INFO ..Initializing the training
+2018-03-01 10:53:51,394 INFO ..Starting the training step
+Shape of pool5:0[1 34 25 512]
+Shape of upscore2[1 67 50 8]
+Shape of upscore4[1 134 100 8]
+Shape of upscore32[1 1067 800 8]
+2018-03-01 10:54:05,667 INFO Step 0/10000: loss = 27.69; lr = 1.00e-05; 0.285 sec (per Batch); 3.5 imgs/sec
+2018-03-01 10:54:08,829 INFO       (raw)  Acc. : 0.16, xentropy: 27.06, weight_loss: 0.39, Overall Precision : 0.14, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 10:54:08,829 INFO    (smooth)  Acc. : 0.16, xentropy: 27.06, weight_loss: 0.39, Overall Precision : 0.14, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 14:23:21,511 INFO Step 1000/10000: loss = 13.28; lr = 1.00e-05; 251.054 sec (per Batch); 0.0 imgs/sec
+2018-03-01 14:23:24,523 INFO       (raw)  Acc. : 0.56, xentropy: 12.88, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 14:23:24,524 INFO    (smooth)  Acc. : 0.18, xentropy: 26.35, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 17:53:17,224 INFO Step 2000/10000: loss = 10.71; lr = 1.00e-05; 251.854 sec (per Batch); 0.0 imgs/sec
+2018-03-01 17:53:20,617 INFO       (raw)  Acc. : 0.64, xentropy: 13.60, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 17:53:20,617 INFO    (smooth)  Acc. : 0.20, xentropy: 25.71, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 21:22:49,243 INFO Step 3000/10000: loss = 7.80; lr = 1.00e-05; 251.372 sec (per Batch); 0.0 imgs/sec
+2018-03-01 21:22:52,546 INFO       (raw)  Acc. : 0.52, xentropy: 12.78, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-01 21:22:52,546 INFO    (smooth)  Acc. : 0.22, xentropy: 25.07, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 00:51:41,589 INFO Step 4000/10000: loss = 12.21; lr = 1.00e-05; 250.581 sec (per Batch); 0.0 imgs/sec
+2018-03-02 00:51:44,775 INFO       (raw)  Acc. : 0.63, xentropy: 9.63, weight_loss: 0.39, Overall Precision : 0.43, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 00:51:44,776 INFO    (smooth)  Acc. : 0.24, xentropy: 24.30, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 04:20:12,804 INFO Step 5000/10000: loss = 9.39; lr = 1.00e-05; 250.161 sec (per Batch); 0.0 imgs/sec
+2018-03-02 04:20:16,049 INFO       (raw)  Acc. : 0.85, xentropy: 5.35, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 04:20:16,049 INFO    (smooth)  Acc. : 0.27, xentropy: 23.35, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 07:49:00,249 INFO Step 6000/10000: loss = 10.41; lr = 1.00e-05; 250.484 sec (per Batch); 0.0 imgs/sec
+2018-03-02 07:49:03,519 INFO       (raw)  Acc. : 0.75, xentropy: 7.20, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 07:49:03,520 INFO    (smooth)  Acc. : 0.29, xentropy: 22.54, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 11:17:07,336 INFO Step 7000/10000: loss = 8.27; lr = 1.00e-05; 249.676 sec (per Batch); 0.0 imgs/sec
+2018-03-02 11:17:10,599 INFO       (raw)  Acc. : 0.65, xentropy: 9.78, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 11:17:10,599 INFO    (smooth)  Acc. : 0.31, xentropy: 21.90, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 14:43:32,123 INFO Step 8000/10000: loss = 8.39; lr = 1.00e-05; 247.630 sec (per Batch); 0.0 imgs/sec
+2018-03-02 14:43:35,191 INFO       (raw)  Acc. : 0.69, xentropy: 8.14, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 14:43:35,191 INFO    (smooth)  Acc. : 0.33, xentropy: 21.21, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 18:09:04,156 INFO Step 9000/10000: loss = 7.22; lr = 1.00e-05; 246.579 sec (per Batch); 0.0 imgs/sec
+2018-03-02 18:09:07,287 INFO       (raw)  Acc. : 0.84, xentropy: 6.42, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 18:09:07,288 INFO    (smooth)  Acc. : 0.35, xentropy: 20.48, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 21:34:30,678 INFO ..Running Evaluation Script
+2018-03-02 21:34:30,679 INFO Evaluating the 8 classes.
+Shape of Validation/Validation/pool5:0[1 34 25 512]
+Shape of upscore2[1 67 50 8]
+Shape of upscore4[1 134 100 8]
+Shape of upscore32[1 1067 800 8]
+2018-03-02 21:48:57,429 INFO ..Evaluation Finished. Saving images in (hypes[dirs][output_dir]):
+2018-03-02 21:48:57,431 INFO .../home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_10k_ruemonge_2018_03_01_10.53
+2018-03-02 21:48:57,431 INFO ..Raw Results:
+2018-03-02 21:48:57,431 INFO     [train] MaxF1 (raw)    :  22.2222 
+2018-03-02 21:48:57,431 INFO     [train] BestThresh (raw)    :  0.0000 
+2018-03-02 21:48:57,431 INFO     [train] Average Precision (raw)    :  12.5000 
+2018-03-02 21:48:57,431 INFO     [val] MaxF1 (raw)    :  22.2222 
+2018-03-02 21:48:57,431 INFO     [val] BestThresh (raw)    :  0.0000 
+2018-03-02 21:48:57,431 INFO     [val] Average Precision (raw)    :  12.5000 
+2018-03-02 21:48:57,431 INFO     Speed (msec) (raw)    :  3185.2931 
+2018-03-02 21:48:57,431 INFO     Speed (fps) (raw)    :  0.3139 
+2018-03-02 21:48:57,432 INFO ..Smooth Results:
+2018-03-02 21:48:57,434 INFO     [train] MaxF1 (smooth) :  22.2222 
+2018-03-02 21:48:57,434 INFO     [train] BestThresh (smooth) :  0.0000 
+2018-03-02 21:48:57,434 INFO     [train] Average Precision (smooth) :  12.5000 
+2018-03-02 21:48:57,434 INFO     [val] MaxF1 (smooth) :  22.2222 
+2018-03-02 21:48:57,434 INFO     [val] BestThresh (smooth) :  0.0000 
+2018-03-02 21:48:57,434 INFO     [val] Average Precision (smooth) :  12.5000 
+2018-03-02 21:48:57,434 INFO     Speed (msec) (smooth) :  3185.2931 
+2018-03-02 21:48:57,434 INFO     Speed (fps) (smooth) :  0.3139 
+2018-03-02 21:48:57,435 INFO ..Writing checkpoint: /home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_10k_ruemonge_2018_03_01_10.53
+2018-03-02 21:49:00.579875: W tensorflow/core/kernels/queue_base.cc:277] _0_Queues/fifo_queue: Skipping cancelled enqueue attempt with queue not closed
+2018-03-02 21:49:04,049 INFO No environment variable 'TV_PLUGIN_DIR' found. Set to '/home/lotte/tv-plugins'.
+2018-03-02 21:49:04,050 INFO No environment variable 'TV_STEP_SHOW' found. Set to '50'.
+2018-03-02 21:49:04,050 INFO No environment variable 'TV_STEP_EVAL' found. Set to '250'.
+2018-03-02 21:49:04,050 INFO No environment variable 'TV_STEP_WRITE' found. Set to '1000'.
+2018-03-02 21:49:04,050 INFO No environment variable 'TV_MAX_KEEP' found. Set to '10'.
+2018-03-02 21:49:04,050 INFO No environment variable 'TV_STEP_STR' found. Set to 'Step {step}/{total_steps}: loss = {loss_value:.2f}; lr = {lr_value:.2e}; {sec_per_batch:.3f} sec (per Batch); {examples_per_sec:.1f} imgs/sec'.
+2018-03-02 21:49:04,051 INFO Initializing GPUs, plugins and creating the essential folders
+2018-03-02 21:49:04,051 INFO f: <open file 'hypes/FacadeSeg_Adam_50k_cmp.json', mode 'r' at 0x7f8fbd6d5d20>
+2018-03-02 21:49:04,054 INFO Loading plugins
+2018-03-02 21:49:04,054 INFO Set dirs
+2018-03-02 21:49:04,054 INFO Add paths to sys
+2018-03-02 21:49:04,055 INFO Initialize training folder
+2018-03-02 21:49:04,072 INFO Start training
+2018-03-02 21:49:04,262 INFO ..Creating queues
+2018-03-02 21:49:04,284 INFO ..Building training graph
+2018-03-02 21:49:04,285 INFO ...Add Input Producers to the Graph
+2018-03-02 21:49:04,293 INFO ...Run inference on the encoder network
+2018-03-02 21:49:04,293 INFO ....Creating encoder inference
+2018-03-02 21:49:06,357 INFO .....Number of classes: 8
+2018-03-02 21:49:06,363 INFO .....Layer name: conv1_1
+2018-03-02 21:49:06,363 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-02 21:49:06,367 INFO .....Creating Summary for: conv1_1/filter
+2018-03-02 21:49:06,384 INFO .....Creating Summary for: conv1_1/biases
+2018-03-02 21:49:06,402 INFO .....Layer name: conv1_2
+2018-03-02 21:49:06,402 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-02 21:49:06,407 INFO .....Creating Summary for: conv1_2/filter
+2018-03-02 21:49:06,424 INFO .....Creating Summary for: conv1_2/biases
+2018-03-02 21:49:06,442 INFO .....Layer name: conv2_1
+2018-03-02 21:49:06,442 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-02 21:49:06,450 INFO .....Creating Summary for: conv2_1/filter
+2018-03-02 21:49:06,466 INFO .....Creating Summary for: conv2_1/biases
+2018-03-02 21:49:06,484 INFO .....Layer name: conv2_2
+2018-03-02 21:49:06,484 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-02 21:49:06,499 INFO .....Creating Summary for: conv2_2/filter
+2018-03-02 21:49:06,515 INFO .....Creating Summary for: conv2_2/biases
+2018-03-02 21:49:06,533 INFO .....Layer name: conv3_1
+2018-03-02 21:49:06,533 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-02 21:49:06,558 INFO .....Creating Summary for: conv3_1/filter
+2018-03-02 21:49:06,574 INFO .....Creating Summary for: conv3_1/biases
+2018-03-02 21:49:06,592 INFO .....Layer name: conv3_2
+2018-03-02 21:49:06,592 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:06,628 INFO .....Creating Summary for: conv3_2/filter
+2018-03-02 21:49:06,645 INFO .....Creating Summary for: conv3_2/biases
+2018-03-02 21:49:06,663 INFO .....Layer name: conv3_3
+2018-03-02 21:49:06,663 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:06,697 INFO .....Creating Summary for: conv3_3/filter
+2018-03-02 21:49:06,714 INFO .....Creating Summary for: conv3_3/biases
+2018-03-02 21:49:06,732 INFO .....Layer name: conv4_1
+2018-03-02 21:49:06,732 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-02 21:49:06,805 INFO .....Creating Summary for: conv4_1/filter
+2018-03-02 21:49:06,822 INFO .....Creating Summary for: conv4_1/biases
+2018-03-02 21:49:06,839 INFO .....Layer name: conv4_2
+2018-03-02 21:49:06,839 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:06,973 INFO .....Creating Summary for: conv4_2/filter
+2018-03-02 21:49:06,990 INFO .....Creating Summary for: conv4_2/biases
+2018-03-02 21:49:07,008 INFO .....Layer name: conv4_3
+2018-03-02 21:49:07,008 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:07,140 INFO .....Creating Summary for: conv4_3/filter
+2018-03-02 21:49:07,156 INFO .....Creating Summary for: conv4_3/biases
+2018-03-02 21:49:07,174 INFO .....Layer name: conv5_1
+2018-03-02 21:49:07,174 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:07,300 INFO .....Creating Summary for: conv5_1/filter
+2018-03-02 21:49:07,317 INFO .....Creating Summary for: conv5_1/biases
+2018-03-02 21:49:07,335 INFO .....Layer name: conv5_2
+2018-03-02 21:49:07,335 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:07,456 INFO .....Creating Summary for: conv5_2/filter
+2018-03-02 21:49:07,474 INFO .....Creating Summary for: conv5_2/biases
+2018-03-02 21:49:07,536 INFO .....Layer name: conv5_3
+2018-03-02 21:49:07,536 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:07,664 INFO .....Creating Summary for: conv5_3/filter
+2018-03-02 21:49:07,680 INFO .....Creating Summary for: conv5_3/biases
+2018-03-02 21:49:07,698 INFO .....Layer name: fc6
+2018-03-02 21:49:07,698 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-03-02 21:49:15,258 INFO .....Creating Summary for: fc6/weights
+2018-03-02 21:49:15,274 INFO .....Creating Summary for: fc6/biases
+2018-03-02 21:49:15,298 INFO .....Layer name: fc7
+2018-03-02 21:49:15,298 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-03-02 21:49:16,295 INFO .....Creating Summary for: fc7/weights
+2018-03-02 21:49:16,312 INFO .....Creating Summary for: fc7/biases
+2018-03-02 21:49:16,341 INFO .....Creating Summary for: score_fr/weights
+2018-03-02 21:49:16,358 INFO .....Creating Summary for: score_fr/biases
+2018-03-02 21:49:16,388 INFO .....Creating Summary for: upscore2/up_filter
+2018-03-02 21:49:16,412 INFO .....Creating Summary for: score_pool4/weights
+2018-03-02 21:49:16,428 INFO .....Creating Summary for: score_pool4/biases
+2018-03-02 21:49:16,458 INFO .....Creating Summary for: upscore4/up_filter
+2018-03-02 21:49:16,482 INFO .....Creating Summary for: score_pool3/weights
+2018-03-02 21:49:16,499 INFO .....Creating Summary for: score_pool3/biases
+2018-03-02 21:49:16,528 INFO .....Creating Summary for: upscore32/up_filter
+2018-03-02 21:49:16,550 INFO ...Build decoder on top of the logits
+2018-03-02 21:49:17,922 INFO ...Add to the Graph the Ops for loss calculation.
+2018-03-02 21:49:17,932 INFO ...Add to the Graph the Ops that calculate and apply gradients.
+2018-03-02 21:49:18,619 INFO ...Evaluating training graph
+2018-03-02 21:49:25,765 INFO ...Validating dataset
+2018-03-02 21:49:25,766 INFO ....Creating encoder inference
+2018-03-02 21:49:26,141 INFO .....Number of classes: 8
+2018-03-02 21:49:26,147 INFO .....Layer name: conv1_1
+2018-03-02 21:49:26,147 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-02 21:49:26,153 INFO .....Layer name: conv1_2
+2018-03-02 21:49:26,153 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-02 21:49:26,160 INFO .....Layer name: conv2_1
+2018-03-02 21:49:26,160 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-02 21:49:26,165 INFO .....Layer name: conv2_2
+2018-03-02 21:49:26,166 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-02 21:49:26,172 INFO .....Layer name: conv3_1
+2018-03-02 21:49:26,172 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-02 21:49:26,178 INFO .....Layer name: conv3_2
+2018-03-02 21:49:26,178 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:26,184 INFO .....Layer name: conv3_3
+2018-03-02 21:49:26,184 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:26,190 INFO .....Layer name: conv4_1
+2018-03-02 21:49:26,190 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-02 21:49:26,196 INFO .....Layer name: conv4_2
+2018-03-02 21:49:26,196 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:26,202 INFO .....Layer name: conv4_3
+2018-03-02 21:49:26,202 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:26,208 INFO .....Layer name: conv5_1
+2018-03-02 21:49:26,208 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:26,213 INFO .....Layer name: conv5_2
+2018-03-02 21:49:26,213 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:26,219 INFO .....Layer name: conv5_3
+2018-03-02 21:49:26,219 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:26,225 INFO .....Layer name: fc6
+2018-03-02 21:49:26,225 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-03-02 21:49:26,230 INFO .....Layer name: fc7
+2018-03-02 21:49:26,231 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-03-02 21:49:26,355 INFO ..Enqueuing files
+Traceback (most recent call last):
+  File "train.py", line 122, in <module>
+    tf.app.run()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 124, in run
+    _sys.exit(main(argv))
+  File "train.py", line 118, in main
+    train.do_training(hypes)
+  File "submodules/tensorvision/train.py", line 354, in do_training
+    modules['input'].start_enqueuing_threads(hypes, queue, 'train', sess)
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../inputs/facade_seg_input.py", line 379, in start_enqueuing_threads
+    gen.next()
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../inputs/facade_seg_input.py", line 123, in _make_data_gen
+    for image, gt_image in data:
+  File "/home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../inputs/facade_seg_input.py", line 61, in _load_gt_file
+    "File does not exist: %s" % gt_image_file
+AssertionError: File does not exist: /data/cmp/annotation-unified/cmp_b0238.png
+2018-03-02 21:49:27,132 INFO No environment variable 'TV_PLUGIN_DIR' found. Set to '/home/lotte/tv-plugins'.
+2018-03-02 21:49:27,132 INFO No environment variable 'TV_STEP_SHOW' found. Set to '50'.
+2018-03-02 21:49:27,133 INFO No environment variable 'TV_STEP_EVAL' found. Set to '250'.
+2018-03-02 21:49:27,133 INFO No environment variable 'TV_STEP_WRITE' found. Set to '1000'.
+2018-03-02 21:49:27,133 INFO No environment variable 'TV_MAX_KEEP' found. Set to '10'.
+2018-03-02 21:49:27,133 INFO No environment variable 'TV_STEP_STR' found. Set to 'Step {step}/{total_steps}: loss = {loss_value:.2f}; lr = {lr_value:.2e}; {sec_per_batch:.3f} sec (per Batch); {examples_per_sec:.1f} imgs/sec'.
+2018-03-02 21:49:27,134 INFO Initializing GPUs, plugins and creating the essential folders
+2018-03-02 21:49:27,134 INFO f: <open file 'hypes/FacadeSeg_Adam_50k_etrims.json', mode 'r' at 0x7f2235813d20>
+2018-03-02 21:49:27,155 INFO Loading plugins
+2018-03-02 21:49:27,155 INFO Set dirs
+2018-03-02 21:49:27,156 INFO Add paths to sys
+2018-03-02 21:49:27,156 INFO Initialize training folder
+2018-03-02 21:49:27,158 INFO Start training
+2018-03-02 21:49:27,178 INFO ..Creating queues
+2018-03-02 21:49:27,199 INFO ..Building training graph
+2018-03-02 21:49:27,199 INFO ...Add Input Producers to the Graph
+2018-03-02 21:49:27,208 INFO ...Run inference on the encoder network
+2018-03-02 21:49:27,208 INFO ....Creating encoder inference
+2018-03-02 21:49:27,547 INFO .....Number of classes: 8
+2018-03-02 21:49:27,553 INFO .....Layer name: conv1_1
+2018-03-02 21:49:27,554 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-02 21:49:27,557 INFO .....Creating Summary for: conv1_1/filter
+2018-03-02 21:49:27,574 INFO .....Creating Summary for: conv1_1/biases
+2018-03-02 21:49:27,593 INFO .....Layer name: conv1_2
+2018-03-02 21:49:27,593 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-02 21:49:27,598 INFO .....Creating Summary for: conv1_2/filter
+2018-03-02 21:49:27,616 INFO .....Creating Summary for: conv1_2/biases
+2018-03-02 21:49:27,635 INFO .....Layer name: conv2_1
+2018-03-02 21:49:27,636 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-02 21:49:27,643 INFO .....Creating Summary for: conv2_1/filter
+2018-03-02 21:49:27,667 INFO .....Creating Summary for: conv2_1/biases
+2018-03-02 21:49:27,685 INFO .....Layer name: conv2_2
+2018-03-02 21:49:27,685 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-02 21:49:27,697 INFO .....Creating Summary for: conv2_2/filter
+2018-03-02 21:49:27,713 INFO .....Creating Summary for: conv2_2/biases
+2018-03-02 21:49:27,732 INFO .....Layer name: conv3_1
+2018-03-02 21:49:27,733 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-02 21:49:27,754 INFO .....Creating Summary for: conv3_1/filter
+2018-03-02 21:49:27,770 INFO .....Creating Summary for: conv3_1/biases
+2018-03-02 21:49:27,789 INFO .....Layer name: conv3_2
+2018-03-02 21:49:27,789 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:27,824 INFO .....Creating Summary for: conv3_2/filter
+2018-03-02 21:49:27,841 INFO .....Creating Summary for: conv3_2/biases
+2018-03-02 21:49:27,859 INFO .....Layer name: conv3_3
+2018-03-02 21:49:27,860 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:27,893 INFO .....Creating Summary for: conv3_3/filter
+2018-03-02 21:49:27,911 INFO .....Creating Summary for: conv3_3/biases
+2018-03-02 21:49:27,929 INFO .....Layer name: conv4_1
+2018-03-02 21:49:27,929 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-02 21:49:28,009 INFO .....Creating Summary for: conv4_1/filter
+2018-03-02 21:49:28,026 INFO .....Creating Summary for: conv4_1/biases
+2018-03-02 21:49:28,044 INFO .....Layer name: conv4_2
+2018-03-02 21:49:28,044 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:28,181 INFO .....Creating Summary for: conv4_2/filter
+2018-03-02 21:49:28,198 INFO .....Creating Summary for: conv4_2/biases
+2018-03-02 21:49:28,216 INFO .....Layer name: conv4_3
+2018-03-02 21:49:28,217 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:28,349 INFO .....Creating Summary for: conv4_3/filter
+2018-03-02 21:49:28,365 INFO .....Creating Summary for: conv4_3/biases
+2018-03-02 21:49:28,384 INFO .....Layer name: conv5_1
+2018-03-02 21:49:28,384 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:28,516 INFO .....Creating Summary for: conv5_1/filter
+2018-03-02 21:49:28,533 INFO .....Creating Summary for: conv5_1/biases
+2018-03-02 21:49:28,551 INFO .....Layer name: conv5_2
+2018-03-02 21:49:28,552 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:28,682 INFO .....Creating Summary for: conv5_2/filter
+2018-03-02 21:49:28,700 INFO .....Creating Summary for: conv5_2/biases
+2018-03-02 21:49:28,753 INFO .....Layer name: conv5_3
+2018-03-02 21:49:28,754 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:28,888 INFO .....Creating Summary for: conv5_3/filter
+2018-03-02 21:49:28,905 INFO .....Creating Summary for: conv5_3/biases
+2018-03-02 21:49:28,924 INFO .....Layer name: fc6
+2018-03-02 21:49:28,924 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-03-02 21:49:35,716 INFO .....Creating Summary for: fc6/weights
+2018-03-02 21:49:35,733 INFO .....Creating Summary for: fc6/biases
+2018-03-02 21:49:35,757 INFO .....Layer name: fc7
+2018-03-02 21:49:35,757 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-03-02 21:49:36,783 INFO .....Creating Summary for: fc7/weights
+2018-03-02 21:49:36,801 INFO .....Creating Summary for: fc7/biases
+2018-03-02 21:49:36,830 INFO .....Creating Summary for: score_fr/weights
+2018-03-02 21:49:36,847 INFO .....Creating Summary for: score_fr/biases
+2018-03-02 21:49:36,877 INFO .....Creating Summary for: upscore2/up_filter
+2018-03-02 21:49:36,900 INFO .....Creating Summary for: score_pool4/weights
+2018-03-02 21:49:36,916 INFO .....Creating Summary for: score_pool4/biases
+2018-03-02 21:49:36,944 INFO .....Creating Summary for: upscore4/up_filter
+2018-03-02 21:49:36,967 INFO .....Creating Summary for: score_pool3/weights
+2018-03-02 21:49:36,983 INFO .....Creating Summary for: score_pool3/biases
+2018-03-02 21:49:37,011 INFO .....Creating Summary for: upscore32/up_filter
+2018-03-02 21:49:37,032 INFO ...Build decoder on top of the logits
+2018-03-02 21:49:37,349 INFO ...Add to the Graph the Ops for loss calculation.
+2018-03-02 21:49:37,358 INFO ...Add to the Graph the Ops that calculate and apply gradients.
+2018-03-02 21:49:38,042 INFO ...Evaluating training graph
+2018-03-02 21:49:45,406 INFO ...Validating dataset
+2018-03-02 21:49:45,406 INFO ....Creating encoder inference
+2018-03-02 21:49:45,813 INFO .....Number of classes: 8
+2018-03-02 21:49:45,819 INFO .....Layer name: conv1_1
+2018-03-02 21:49:45,819 INFO .....Layer shape: (3, 3, 3, 64)
+2018-03-02 21:49:45,825 INFO .....Layer name: conv1_2
+2018-03-02 21:49:45,825 INFO .....Layer shape: (3, 3, 64, 64)
+2018-03-02 21:49:45,832 INFO .....Layer name: conv2_1
+2018-03-02 21:49:45,832 INFO .....Layer shape: (3, 3, 64, 128)
+2018-03-02 21:49:45,837 INFO .....Layer name: conv2_2
+2018-03-02 21:49:45,838 INFO .....Layer shape: (3, 3, 128, 128)
+2018-03-02 21:49:45,844 INFO .....Layer name: conv3_1
+2018-03-02 21:49:45,844 INFO .....Layer shape: (3, 3, 128, 256)
+2018-03-02 21:49:45,850 INFO .....Layer name: conv3_2
+2018-03-02 21:49:45,850 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:45,856 INFO .....Layer name: conv3_3
+2018-03-02 21:49:45,856 INFO .....Layer shape: (3, 3, 256, 256)
+2018-03-02 21:49:45,863 INFO .....Layer name: conv4_1
+2018-03-02 21:49:45,863 INFO .....Layer shape: (3, 3, 256, 512)
+2018-03-02 21:49:45,869 INFO .....Layer name: conv4_2
+2018-03-02 21:49:45,869 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:45,874 INFO .....Layer name: conv4_3
+2018-03-02 21:49:45,875 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:45,881 INFO .....Layer name: conv5_1
+2018-03-02 21:49:45,881 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:45,887 INFO .....Layer name: conv5_2
+2018-03-02 21:49:45,887 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:45,893 INFO .....Layer name: conv5_3
+2018-03-02 21:49:45,893 INFO .....Layer shape: (3, 3, 512, 512)
+2018-03-02 21:49:45,899 INFO .....Layer name: fc6
+2018-03-02 21:49:45,899 INFO .....Layer shape: [7, 7, 512, 4096]
+2018-03-02 21:49:45,905 INFO .....Layer name: fc7
+2018-03-02 21:49:45,905 INFO .....Layer shape: [1, 1, 4096, 4096]
+2018-03-02 21:49:46,031 INFO ..Enqueuing files
+2018-03-02 21:49:46,263 INFO ..Initializing the training
+2018-03-02 21:49:46,263 INFO ..Starting the training step
+Shape of pool5:0[1 18 24 512]
+Shape of upscore2[1 36 47 8]
+Shape of upscore4[1 72 93 8]
+Shape of upscore32[1 571 743 8]
+2018-03-02 21:49:54,372 INFO Step 0/50000: loss = 28.68; lr = 1.00e-05; 0.162 sec (per Batch); 6.2 imgs/sec
+2018-03-02 21:49:55,843 INFO       (raw)  Acc. : 0.16, xentropy: 24.29, weight_loss: 0.39, Overall Precision : 0.09, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 21:49:55,843 INFO    (smooth)  Acc. : 0.16, xentropy: 24.29, weight_loss: 0.39, Overall Precision : 0.09, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 23:24:03,883 INFO Step 1000/50000: loss = 3.66; lr = 1.00e-05; 112.961 sec (per Batch); 0.0 imgs/sec
+2018-03-02 23:24:05,342 INFO       (raw)  Acc. : 0.91, xentropy: 3.36, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-02 23:24:05,343 INFO    (smooth)  Acc. : 0.20, xentropy: 23.24, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 00:58:38,370 INFO Step 2000/50000: loss = 8.10; lr = 1.00e-05; 113.461 sec (per Batch); 0.0 imgs/sec
+2018-03-03 00:58:39,939 INFO       (raw)  Acc. : 0.89, xentropy: 4.17, weight_loss: 0.38, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 00:58:39,940 INFO    (smooth)  Acc. : 0.23, xentropy: 22.29, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 02:33:07,408 INFO Step 3000/50000: loss = 3.58; lr = 1.00e-05; 113.349 sec (per Batch); 0.0 imgs/sec
+2018-03-03 02:33:08,928 INFO       (raw)  Acc. : 0.92, xentropy: 3.34, weight_loss: 0.37, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 02:33:08,929 INFO    (smooth)  Acc. : 0.27, xentropy: 21.34, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 04:07:53,510 INFO Step 4000/50000: loss = 3.33; lr = 1.00e-05; 113.692 sec (per Batch); 0.0 imgs/sec
+2018-03-03 04:07:54,908 INFO       (raw)  Acc. : 0.84, xentropy: 6.25, weight_loss: 0.36, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 04:07:54,908 INFO    (smooth)  Acc. : 0.29, xentropy: 20.58, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 05:42:44,369 INFO Step 5000/50000: loss = 8.13; lr = 1.00e-05; 113.789 sec (per Batch); 0.0 imgs/sec
+2018-03-03 05:42:46,020 INFO       (raw)  Acc. : 0.91, xentropy: 3.40, weight_loss: 0.36, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 05:42:46,021 INFO    (smooth)  Acc. : 0.33, xentropy: 19.73, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 07:17:38,001 INFO Step 6000/50000: loss = 4.10; lr = 1.00e-05; 113.840 sec (per Batch); 0.0 imgs/sec
+2018-03-03 07:17:39,963 INFO       (raw)  Acc. : 0.92, xentropy: 3.28, weight_loss: 0.35, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 07:17:39,963 INFO    (smooth)  Acc. : 0.36, xentropy: 18.90, weight_loss: 0.39, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 08:52:22,687 INFO Step 7000/50000: loss = 3.44; lr = 1.00e-05; 113.654 sec (per Batch); 0.0 imgs/sec
+2018-03-03 08:52:24,108 INFO       (raw)  Acc. : 0.90, xentropy: 4.08, weight_loss: 0.34, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 08:52:24,108 INFO    (smooth)  Acc. : 0.38, xentropy: 18.16, weight_loss: 0.38, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 10:27:18,461 INFO Step 8000/50000: loss = 4.55; lr = 1.00e-05; 113.887 sec (per Batch); 0.0 imgs/sec
+2018-03-03 10:27:19,989 INFO       (raw)  Acc. : 0.91, xentropy: 3.36, weight_loss: 0.33, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 10:27:19,989 INFO    (smooth)  Acc. : 0.41, xentropy: 17.42, weight_loss: 0.38, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 12:02:14,471 INFO Step 9000/50000: loss = 4.36; lr = 1.00e-05; 113.890 sec (per Batch); 0.0 imgs/sec
+2018-03-03 12:02:15,949 INFO       (raw)  Acc. : 0.89, xentropy: 4.31, weight_loss: 0.32, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 12:02:15,950 INFO    (smooth)  Acc. : 0.43, xentropy: 16.77, weight_loss: 0.38, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 13:37:08,705 INFO Step 10000/50000: loss = 4.83; lr = 1.00e-05; 113.855 sec (per Batch); 0.0 imgs/sec
+2018-03-03 13:37:10,139 INFO       (raw)  Acc. : 0.80, xentropy: 8.24, weight_loss: 0.31, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 13:37:10,139 INFO    (smooth)  Acc. : 0.45, xentropy: 16.34, weight_loss: 0.38, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 13:37:15,490 INFO ..Running Evaluation Script
+2018-03-03 13:37:15,494 INFO Evaluating the 8 classes.
+Shape of Validation/Validation/pool5:0[1 24 16 512]
+Shape of upscore2[1 48 32 8]
+Shape of upscore4[1 96 64 8]
+Shape of upscore32[1 768 512 8]
+2018-03-03 13:39:25,279 INFO ..Evaluation Finished. Saving images in (hypes[dirs][output_dir]):
+2018-03-03 13:39:25,281 INFO .../home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-03 13:39:25,281 INFO ..Raw Results:
+2018-03-03 13:39:25,281 INFO     [train] MaxF1 (raw)    :  22.2222 
+2018-03-03 13:39:25,281 INFO     [train] BestThresh (raw)    :  0.0000 
+2018-03-03 13:39:25,281 INFO     [train] Average Precision (raw)    :  12.5000 
+2018-03-03 13:39:25,281 INFO     [val] MaxF1 (raw)    :  22.2222 
+2018-03-03 13:39:25,281 INFO     [val] BestThresh (raw)    :  0.0000 
+2018-03-03 13:39:25,281 INFO     [val] Average Precision (raw)    :  12.5000 
+2018-03-03 13:39:25,281 INFO     Speed (msec) (raw)    :  1510.2874 
+2018-03-03 13:39:25,282 INFO     Speed (fps) (raw)    :  0.6621 
+2018-03-03 13:39:25,282 INFO ..Smooth Results:
+2018-03-03 13:39:25,284 INFO     [train] MaxF1 (smooth) :  22.2222 
+2018-03-03 13:39:25,284 INFO     [train] BestThresh (smooth) :  0.0000 
+2018-03-03 13:39:25,284 INFO     [train] Average Precision (smooth) :  12.5000 
+2018-03-03 13:39:25,284 INFO     [val] MaxF1 (smooth) :  22.2222 
+2018-03-03 13:39:25,285 INFO     [val] BestThresh (smooth) :  0.0000 
+2018-03-03 13:39:25,285 INFO     [val] Average Precision (smooth) :  12.5000 
+2018-03-03 13:39:25,285 INFO     Speed (msec) (smooth) :  1510.2874 
+2018-03-03 13:39:25,285 INFO     Speed (fps) (smooth) :  0.6621 
+2018-03-03 13:39:25,285 INFO ..Writing checkpoint: /home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-03 15:14:12,285 INFO Step 11000/50000: loss = 4.95; lr = 1.00e-05; 113.679 sec (per Batch); 0.0 imgs/sec
+2018-03-03 15:14:13,847 INFO       (raw)  Acc. : 0.86, xentropy: 5.76, weight_loss: 0.31, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 15:14:13,847 INFO    (smooth)  Acc. : 0.47, xentropy: 15.81, weight_loss: 0.37, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 16:48:50,473 INFO Step 12000/50000: loss = 4.34; lr = 1.00e-05; 113.532 sec (per Batch); 0.0 imgs/sec
+2018-03-03 16:48:51,938 INFO       (raw)  Acc. : 0.81, xentropy: 7.57, weight_loss: 0.30, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 16:48:51,938 INFO    (smooth)  Acc. : 0.49, xentropy: 15.40, weight_loss: 0.37, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 18:42:00,576 INFO Step 13000/50000: loss = 3.61; lr = 1.00e-05; 135.773 sec (per Batch); 0.0 imgs/sec
+2018-03-03 18:42:02,100 INFO       (raw)  Acc. : 0.86, xentropy: 5.87, weight_loss: 0.29, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 18:42:02,101 INFO    (smooth)  Acc. : 0.51, xentropy: 14.92, weight_loss: 0.36, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 20:17:11,821 INFO Step 14000/50000: loss = 11.85; lr = 1.00e-05; 114.194 sec (per Batch); 0.0 imgs/sec
+2018-03-03 20:17:13,401 INFO       (raw)  Acc. : 0.90, xentropy: 3.78, weight_loss: 0.29, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 20:17:13,402 INFO    (smooth)  Acc. : 0.53, xentropy: 14.36, weight_loss: 0.36, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 21:52:11,514 INFO Step 15000/50000: loss = 0.67; lr = 1.00e-05; 113.962 sec (per Batch); 0.0 imgs/sec
+2018-03-03 21:52:12,916 INFO       (raw)  Acc. : 0.93, xentropy: 1.47, weight_loss: 0.29, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 21:52:12,917 INFO    (smooth)  Acc. : 0.55, xentropy: 13.72, weight_loss: 0.36, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 23:27:01,888 INFO Step 16000/50000: loss = 0.39; lr = 1.00e-05; 113.779 sec (per Batch); 0.0 imgs/sec
+2018-03-03 23:27:03,571 INFO       (raw)  Acc. : 0.96, xentropy: 0.18, weight_loss: 0.28, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-03 23:27:03,572 INFO    (smooth)  Acc. : 0.57, xentropy: 13.04, weight_loss: 0.35, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 01:03:19,456 INFO Step 17000/50000: loss = 0.47; lr = 1.00e-05; 115.518 sec (per Batch); 0.0 imgs/sec
+2018-03-04 01:03:21,011 INFO       (raw)  Acc. : 0.97, xentropy: 0.10, weight_loss: 0.28, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 01:03:21,012 INFO    (smooth)  Acc. : 0.59, xentropy: 12.40, weight_loss: 0.35, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 02:41:14,853 INFO Step 18000/50000: loss = 0.35; lr = 1.00e-05; 117.477 sec (per Batch); 0.0 imgs/sec
+2018-03-04 02:41:16,353 INFO       (raw)  Acc. : 0.98, xentropy: 0.10, weight_loss: 0.27, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 02:41:16,353 INFO    (smooth)  Acc. : 0.61, xentropy: 11.78, weight_loss: 0.35, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 04:19:17,248 INFO Step 19000/50000: loss = 0.38; lr = 1.00e-05; 117.618 sec (per Batch); 0.0 imgs/sec
+2018-03-04 04:19:18,792 INFO       (raw)  Acc. : 0.92, xentropy: 0.35, weight_loss: 0.26, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 04:19:18,793 INFO    (smooth)  Acc. : 0.62, xentropy: 11.21, weight_loss: 0.34, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 05:59:39,173 INFO Step 20000/50000: loss = 0.32; lr = 1.00e-05; 120.408 sec (per Batch); 0.0 imgs/sec
+2018-03-04 05:59:40,684 INFO       (raw)  Acc. : 0.97, xentropy: 0.15, weight_loss: 0.25, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 05:59:40,685 INFO    (smooth)  Acc. : 0.64, xentropy: 10.66, weight_loss: 0.34, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 05:59:45,759 INFO ..Running Evaluation Script
+2018-03-04 05:59:45,763 INFO Evaluating the 8 classes.
+2018-03-04 06:01:55,221 INFO ..Evaluation Finished. Saving images in (hypes[dirs][output_dir]):
+2018-03-04 06:01:55,222 INFO .../home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-04 06:01:55,223 INFO ..Raw Results:
+2018-03-04 06:01:55,223 INFO     [train] MaxF1 (raw)    :  22.2222 
+2018-03-04 06:01:55,223 INFO     [train] BestThresh (raw)    :  0.0000 
+2018-03-04 06:01:55,223 INFO     [train] Average Precision (raw)    :  12.5000 
+2018-03-04 06:01:55,223 INFO     [val] MaxF1 (raw)    :  22.2222 
+2018-03-04 06:01:55,223 INFO     [val] BestThresh (raw)    :  0.0000 
+2018-03-04 06:01:55,223 INFO     [val] Average Precision (raw)    :  12.5000 
+2018-03-04 06:01:55,223 INFO     Speed (msec) (raw)    :  1523.1263 
+2018-03-04 06:01:55,223 INFO     Speed (fps) (raw)    :  0.6565 
+2018-03-04 06:01:55,224 INFO ..Smooth Results:
+2018-03-04 06:01:55,226 INFO     [train] MaxF1 (smooth) :  22.2222 
+2018-03-04 06:01:55,226 INFO     [train] BestThresh (smooth) :  0.0000 
+2018-03-04 06:01:55,226 INFO     [train] Average Precision (smooth) :  12.5000 
+2018-03-04 06:01:55,226 INFO     [val] MaxF1 (smooth) :  22.2222 
+2018-03-04 06:01:55,226 INFO     [val] BestThresh (smooth) :  0.0000 
+2018-03-04 06:01:55,226 INFO     [val] Average Precision (smooth) :  12.5000 
+2018-03-04 06:01:55,226 INFO     Speed (msec) (smooth) :  1516.7068 
+2018-03-04 06:01:55,226 INFO     Speed (fps) (smooth) :  0.6593 
+2018-03-04 06:01:55,227 INFO ..Writing checkpoint: /home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-04 07:36:32,844 INFO Step 21000/50000: loss = 0.32; lr = 1.00e-05; 113.501 sec (per Batch); 0.0 imgs/sec
+2018-03-04 07:36:34,799 INFO       (raw)  Acc. : 0.99, xentropy: 0.05, weight_loss: 0.24, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 07:36:34,799 INFO    (smooth)  Acc. : 0.66, xentropy: 10.13, weight_loss: 0.33, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 09:11:20,049 INFO Step 22000/50000: loss = 0.36; lr = 1.00e-05; 113.705 sec (per Batch); 0.0 imgs/sec
+2018-03-04 09:11:21,597 INFO       (raw)  Acc. : 0.96, xentropy: 0.15, weight_loss: 0.23, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 09:11:21,597 INFO    (smooth)  Acc. : 0.67, xentropy: 9.63, weight_loss: 0.33, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 10:47:04,370 INFO Step 23000/50000: loss = 0.30; lr = 1.00e-05; 114.855 sec (per Batch); 0.0 imgs/sec
+2018-03-04 10:47:05,815 INFO       (raw)  Acc. : 0.98, xentropy: 0.06, weight_loss: 0.22, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 10:47:05,815 INFO    (smooth)  Acc. : 0.69, xentropy: 9.15, weight_loss: 0.32, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 12:23:28,118 INFO Step 24000/50000: loss = 0.25; lr = 1.00e-05; 115.646 sec (per Batch); 0.0 imgs/sec
+2018-03-04 12:23:29,600 INFO       (raw)  Acc. : 0.98, xentropy: 0.08, weight_loss: 0.21, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 12:23:29,601 INFO    (smooth)  Acc. : 0.70, xentropy: 8.70, weight_loss: 0.32, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 13:59:57,199 INFO Step 25000/50000: loss = 0.25; lr = 1.00e-05; 115.752 sec (per Batch); 0.0 imgs/sec
+2018-03-04 13:59:58,800 INFO       (raw)  Acc. : 0.98, xentropy: 0.10, weight_loss: 0.20, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 13:59:58,801 INFO    (smooth)  Acc. : 0.72, xentropy: 8.27, weight_loss: 0.31, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 15:37:08,511 INFO Step 26000/50000: loss = 0.25; lr = 1.00e-05; 116.594 sec (per Batch); 0.0 imgs/sec
+2018-03-04 15:37:10,011 INFO       (raw)  Acc. : 0.97, xentropy: 0.11, weight_loss: 0.20, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 15:37:10,012 INFO    (smooth)  Acc. : 0.73, xentropy: 7.86, weight_loss: 0.30, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 17:18:26,640 INFO Step 27000/50000: loss = 0.32; lr = 1.00e-05; 121.532 sec (per Batch); 0.0 imgs/sec
+2018-03-04 17:18:28,696 INFO       (raw)  Acc. : 0.96, xentropy: 0.20, weight_loss: 0.19, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 17:18:28,698 INFO    (smooth)  Acc. : 0.74, xentropy: 7.48, weight_loss: 0.30, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 19:04:01,190 INFO Step 28000/50000: loss = 0.29; lr = 1.00e-05; 126.650 sec (per Batch); 0.0 imgs/sec
+2018-03-04 19:04:02,866 INFO       (raw)  Acc. : 0.98, xentropy: 0.06, weight_loss: 0.18, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 19:04:02,867 INFO    (smooth)  Acc. : 0.75, xentropy: 7.10, weight_loss: 0.29, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 20:50:43,599 INFO Step 29000/50000: loss = 0.25; lr = 1.00e-05; 128.015 sec (per Batch); 0.0 imgs/sec
+2018-03-04 20:50:45,380 INFO       (raw)  Acc. : 0.99, xentropy: 0.05, weight_loss: 0.18, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 20:50:45,381 INFO    (smooth)  Acc. : 0.77, xentropy: 6.75, weight_loss: 0.29, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 22:37:23,402 INFO Step 30000/50000: loss = 0.22; lr = 1.00e-05; 127.960 sec (per Batch); 0.0 imgs/sec
+2018-03-04 22:37:25,006 INFO       (raw)  Acc. : 0.98, xentropy: 0.08, weight_loss: 0.17, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 22:37:25,007 INFO    (smooth)  Acc. : 0.78, xentropy: 6.42, weight_loss: 0.28, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-04 22:37:30,256 INFO ..Running Evaluation Script
+2018-03-04 22:37:30,339 INFO Evaluating the 8 classes.
+2018-03-04 22:39:50,096 INFO ..Evaluation Finished. Saving images in (hypes[dirs][output_dir]):
+2018-03-04 22:39:50,097 INFO .../home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-04 22:39:50,123 INFO ..Raw Results:
+2018-03-04 22:39:50,131 INFO     [train] MaxF1 (raw)    :  22.2222 
+2018-03-04 22:39:50,131 INFO     [train] BestThresh (raw)    :  0.0000 
+2018-03-04 22:39:50,131 INFO     [train] Average Precision (raw)    :  12.5000 
+2018-03-04 22:39:50,131 INFO     [val] MaxF1 (raw)    :  22.2222 
+2018-03-04 22:39:50,131 INFO     [val] BestThresh (raw)    :  0.0000 
+2018-03-04 22:39:50,131 INFO     [val] Average Precision (raw)    :  12.5000 
+2018-03-04 22:39:50,131 INFO     Speed (msec) (raw)    :  1618.8376 
+2018-03-04 22:39:50,131 INFO     Speed (fps) (raw)    :  0.6177 
+2018-03-04 22:39:50,132 INFO ..Smooth Results:
+2018-03-04 22:39:50,135 INFO     [train] MaxF1 (smooth) :  22.2222 
+2018-03-04 22:39:50,135 INFO     [train] BestThresh (smooth) :  0.0000 
+2018-03-04 22:39:50,135 INFO     [train] Average Precision (smooth) :  12.5000 
+2018-03-04 22:39:50,135 INFO     [val] MaxF1 (smooth) :  22.2222 
+2018-03-04 22:39:50,135 INFO     [val] BestThresh (smooth) :  0.0000 
+2018-03-04 22:39:50,135 INFO     [val] Average Precision (smooth) :  12.5000 
+2018-03-04 22:39:50,136 INFO     Speed (msec) (smooth) :  1523.1263 
+2018-03-04 22:39:50,136 INFO     Speed (fps) (smooth) :  0.6565 
+2018-03-04 22:39:50,136 INFO ..Writing checkpoint: /home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-05 00:24:30,688 INFO Step 31000/50000: loss = 0.23; lr = 1.00e-05; 125.470 sec (per Batch); 0.0 imgs/sec
+2018-03-05 00:24:32,205 INFO       (raw)  Acc. : 0.98, xentropy: 0.09, weight_loss: 0.17, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 00:24:32,205 INFO    (smooth)  Acc. : 0.79, xentropy: 6.10, weight_loss: 0.28, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 02:09:04,582 INFO Step 32000/50000: loss = 0.20; lr = 1.00e-05; 125.448 sec (per Batch); 0.0 imgs/sec
+2018-03-05 02:09:06,142 INFO       (raw)  Acc. : 0.99, xentropy: 0.04, weight_loss: 0.16, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 02:09:06,143 INFO    (smooth)  Acc. : 0.80, xentropy: 5.80, weight_loss: 0.27, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 03:53:45,058 INFO Step 33000/50000: loss = 0.25; lr = 1.00e-05; 125.578 sec (per Batch); 0.0 imgs/sec
+2018-03-05 03:53:46,911 INFO       (raw)  Acc. : 0.98, xentropy: 0.08, weight_loss: 0.16, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 03:53:46,911 INFO    (smooth)  Acc. : 0.81, xentropy: 5.51, weight_loss: 0.26, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 05:38:31,865 INFO Step 34000/50000: loss = 0.30; lr = 1.00e-05; 125.699 sec (per Batch); 0.0 imgs/sec
+2018-03-05 05:38:33,437 INFO       (raw)  Acc. : 0.99, xentropy: 0.04, weight_loss: 0.15, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 05:38:33,438 INFO    (smooth)  Acc. : 0.81, xentropy: 5.24, weight_loss: 0.26, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 07:22:47,792 INFO Step 35000/50000: loss = 0.21; lr = 1.00e-05; 125.087 sec (per Batch); 0.0 imgs/sec
+2018-03-05 07:22:49,510 INFO       (raw)  Acc. : 0.96, xentropy: 0.14, weight_loss: 0.15, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 07:22:49,511 INFO    (smooth)  Acc. : 0.82, xentropy: 4.98, weight_loss: 0.25, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 09:07:23,557 INFO Step 36000/50000: loss = 0.19; lr = 1.00e-05; 125.481 sec (per Batch); 0.0 imgs/sec
+2018-03-05 09:07:25,068 INFO       (raw)  Acc. : 0.96, xentropy: 0.15, weight_loss: 0.14, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 09:07:25,069 INFO    (smooth)  Acc. : 0.83, xentropy: 4.74, weight_loss: 0.25, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 10:52:12,581 INFO Step 37000/50000: loss = 0.19; lr = 1.00e-05; 125.750 sec (per Batch); 0.0 imgs/sec
+2018-03-05 10:52:14,278 INFO       (raw)  Acc. : 0.99, xentropy: 0.06, weight_loss: 0.14, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 10:52:14,278 INFO    (smooth)  Acc. : 0.84, xentropy: 4.51, weight_loss: 0.24, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 12:36:53,086 INFO Step 38000/50000: loss = 0.19; lr = 1.00e-05; 125.576 sec (per Batch); 0.0 imgs/sec
+2018-03-05 12:36:54,836 INFO       (raw)  Acc. : 0.98, xentropy: 0.07, weight_loss: 0.14, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 12:36:54,836 INFO    (smooth)  Acc. : 0.84, xentropy: 4.29, weight_loss: 0.24, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 14:21:44,109 INFO Step 39000/50000: loss = 0.17; lr = 1.00e-05; 125.785 sec (per Batch); 0.0 imgs/sec
+2018-03-05 14:21:45,632 INFO       (raw)  Acc. : 0.98, xentropy: 0.06, weight_loss: 0.13, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 14:21:45,633 INFO    (smooth)  Acc. : 0.85, xentropy: 4.08, weight_loss: 0.23, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 16:06:11,486 INFO Step 40000/50000: loss = 0.23; lr = 1.00e-05; 125.317 sec (per Batch); 0.0 imgs/sec
+2018-03-05 16:06:13,239 INFO       (raw)  Acc. : 0.98, xentropy: 0.09, weight_loss: 0.13, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 16:06:13,239 INFO    (smooth)  Acc. : 0.86, xentropy: 3.88, weight_loss: 0.23, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 16:06:18,510 INFO ..Running Evaluation Script
+2018-03-05 16:06:18,516 INFO Evaluating the 8 classes.
+2018-03-05 16:08:34,809 INFO ..Evaluation Finished. Saving images in (hypes[dirs][output_dir]):
+2018-03-05 16:08:34,810 INFO .../home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-05 16:08:34,810 INFO ..Raw Results:
+2018-03-05 16:08:34,810 INFO     [train] MaxF1 (raw)    :  22.2222 
+2018-03-05 16:08:34,810 INFO     [train] BestThresh (raw)    :  0.0000 
+2018-03-05 16:08:34,810 INFO     [train] Average Precision (raw)    :  12.5000 
+2018-03-05 16:08:34,810 INFO     [val] MaxF1 (raw)    :  22.2222 
+2018-03-05 16:08:34,810 INFO     [val] BestThresh (raw)    :  0.0000 
+2018-03-05 16:08:34,810 INFO     [val] Average Precision (raw)    :  12.5000 
+2018-03-05 16:08:34,810 INFO     Speed (msec) (raw)    :  1594.8720 
+2018-03-05 16:08:34,811 INFO     Speed (fps) (raw)    :  0.6270 
+2018-03-05 16:08:34,811 INFO ..Smooth Results:
+2018-03-05 16:08:34,813 INFO     [train] MaxF1 (smooth) :  22.2222 
+2018-03-05 16:08:34,814 INFO     [train] BestThresh (smooth) :  0.0000 
+2018-03-05 16:08:34,814 INFO     [train] Average Precision (smooth) :  12.5000 
+2018-03-05 16:08:34,814 INFO     [val] MaxF1 (smooth) :  22.2222 
+2018-03-05 16:08:34,814 INFO     [val] BestThresh (smooth) :  0.0000 
+2018-03-05 16:08:34,814 INFO     [val] Average Precision (smooth) :  12.5000 
+2018-03-05 16:08:34,814 INFO     Speed (msec) (smooth) :  1558.9991 
+2018-03-05 16:08:34,814 INFO     Speed (fps) (smooth) :  0.6418 
+2018-03-05 16:08:34,814 INFO ..Writing checkpoint: /home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-05 17:54:54,428 INFO Step 41000/50000: loss = 0.17; lr = 1.00e-05; 127.526 sec (per Batch); 0.0 imgs/sec
+2018-03-05 17:54:55,949 INFO       (raw)  Acc. : 0.99, xentropy: 0.04, weight_loss: 0.13, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 17:54:55,950 INFO    (smooth)  Acc. : 0.86, xentropy: 3.68, weight_loss: 0.22, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 19:41:35,165 INFO Step 42000/50000: loss = 0.19; lr = 1.00e-05; 127.984 sec (per Batch); 0.0 imgs/sec
+2018-03-05 19:41:36,700 INFO       (raw)  Acc. : 0.99, xentropy: 0.04, weight_loss: 0.12, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 19:41:36,700 INFO    (smooth)  Acc. : 0.87, xentropy: 3.50, weight_loss: 0.22, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 21:27:38,312 INFO Step 43000/50000: loss = 0.18; lr = 1.00e-05; 127.232 sec (per Batch); 0.0 imgs/sec
+2018-03-05 21:27:40,003 INFO       (raw)  Acc. : 0.97, xentropy: 0.11, weight_loss: 0.12, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 21:27:40,004 INFO    (smooth)  Acc. : 0.88, xentropy: 3.33, weight_loss: 0.21, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 23:13:16,173 INFO Step 44000/50000: loss = 0.16; lr = 1.00e-05; 126.723 sec (per Batch); 0.0 imgs/sec
+2018-03-05 23:13:18,139 INFO       (raw)  Acc. : 0.97, xentropy: 0.11, weight_loss: 0.12, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-05 23:13:18,140 INFO    (smooth)  Acc. : 0.88, xentropy: 3.17, weight_loss: 0.21, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 00:59:17,164 INFO Step 45000/50000: loss = 0.20; lr = 1.00e-05; 127.180 sec (per Batch); 0.0 imgs/sec
+2018-03-06 00:59:18,731 INFO       (raw)  Acc. : 0.98, xentropy: 0.06, weight_loss: 0.12, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 00:59:18,731 INFO    (smooth)  Acc. : 0.89, xentropy: 3.02, weight_loss: 0.20, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 02:44:45,564 INFO Step 46000/50000: loss = 0.19; lr = 1.00e-05; 126.537 sec (per Batch); 0.0 imgs/sec
+2018-03-06 02:44:47,080 INFO       (raw)  Acc. : 0.99, xentropy: 0.04, weight_loss: 0.11, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 02:44:47,081 INFO    (smooth)  Acc. : 0.89, xentropy: 2.87, weight_loss: 0.20, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 04:30:38,675 INFO Step 47000/50000: loss = 0.17; lr = 1.00e-05; 127.032 sec (per Batch); 0.0 imgs/sec
+2018-03-06 04:30:40,430 INFO       (raw)  Acc. : 0.99, xentropy: 0.03, weight_loss: 0.11, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 04:30:40,431 INFO    (smooth)  Acc. : 0.90, xentropy: 2.73, weight_loss: 0.19, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 06:16:10,524 INFO Step 48000/50000: loss = 0.20; lr = 1.00e-05; 126.602 sec (per Batch); 0.0 imgs/sec
+2018-03-06 06:16:12,189 INFO       (raw)  Acc. : 0.99, xentropy: 0.06, weight_loss: 0.11, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 06:16:12,190 INFO    (smooth)  Acc. : 0.90, xentropy: 2.59, weight_loss: 0.19, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 08:02:05,082 INFO Step 49000/50000: loss = 0.19; lr = 1.00e-05; 127.058 sec (per Batch); 0.0 imgs/sec
+2018-03-06 08:02:07,028 INFO       (raw)  Acc. : 0.99, xentropy: 0.04, weight_loss: 0.11, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 08:02:07,029 INFO    (smooth)  Acc. : 0.90, xentropy: 2.46, weight_loss: 0.19, Overall Precision : nan, Overall Recall: nan, Overall F1 score : nan
+2018-03-06 09:47:18,138 INFO ..Running Evaluation Script
+2018-03-06 09:47:18,138 INFO Evaluating the 8 classes.
+2018-03-06 09:49:34,010 INFO ..Evaluation Finished. Saving images in (hypes[dirs][output_dir]):
+2018-03-06 09:49:34,011 INFO .../home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-06 09:49:34,011 INFO ..Raw Results:
+2018-03-06 09:49:34,011 INFO     [train] MaxF1 (raw)    :  22.2222 
+2018-03-06 09:49:34,011 INFO     [train] BestThresh (raw)    :  0.0000 
+2018-03-06 09:49:34,011 INFO     [train] Average Precision (raw)    :  12.5000 
+2018-03-06 09:49:34,011 INFO     [val] MaxF1 (raw)    :  22.2222 
+2018-03-06 09:49:34,011 INFO     [val] BestThresh (raw)    :  0.0000 
+2018-03-06 09:49:34,012 INFO     [val] Average Precision (raw)    :  12.5000 
+2018-03-06 09:49:34,012 INFO     Speed (msec) (raw)    :  1637.7259 
+2018-03-06 09:49:34,012 INFO     Speed (fps) (raw)    :  0.6106 
+2018-03-06 09:49:34,013 INFO ..Smooth Results:
+2018-03-06 09:49:34,014 INFO     [train] MaxF1 (smooth) :  22.2222 
+2018-03-06 09:49:34,014 INFO     [train] BestThresh (smooth) :  0.0000 
+2018-03-06 09:49:34,014 INFO     [train] Average Precision (smooth) :  12.5000 
+2018-03-06 09:49:34,014 INFO     [val] MaxF1 (smooth) :  22.2222 
+2018-03-06 09:49:34,014 INFO     [val] BestThresh (smooth) :  0.0000 
+2018-03-06 09:49:34,014 INFO     [val] Average Precision (smooth) :  12.5000 
+2018-03-06 09:49:34,014 INFO     Speed (msec) (smooth) :  1594.8720 
+2018-03-06 09:49:34,014 INFO     Speed (fps) (smooth) :  0.6270 
+2018-03-06 09:49:34,015 INFO ..Writing checkpoint: /home/lotte/Git/lotte/deep-learning/cnn-projects/multiclass-seg/hypes/../RUNS/FacadeSeg_Adam_50k_etrims_2018_03_02_21.49
+2018-03-06 09:49:37.184075: W tensorflow/core/kernels/queue_base.cc:277] _0_Queues/fifo_queue: Skipping cancelled enqueue attempt with queue not closed

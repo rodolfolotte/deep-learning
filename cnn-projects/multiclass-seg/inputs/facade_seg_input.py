@@ -93,14 +93,14 @@ def _make_data_gen(hypes, phase, data_dir):
     # num_classes = hypes['arch']['num_classes']
 
     color_classes = []
-    color_classes.append(np.array(hypes['colors']['background']))
-    color_classes.append(np.array(hypes['colors']['sky']))
     color_classes.append(np.array(hypes['colors']['roof']))
+    color_classes.append(np.array(hypes['colors']['sky']))
     color_classes.append(np.array(hypes['colors']['wall']))
-    color_classes.append(np.array(hypes['colors']['window']))
-    color_classes.append(np.array(hypes['colors']['door']))
-    color_classes.append(np.array(hypes['colors']['shop']))    
     color_classes.append(np.array(hypes['colors']['balcony']))
+    color_classes.append(np.array(hypes['colors']['window']))
+    color_classes.append(np.array(hypes['colors']['background']))
+    color_classes.append(np.array(hypes['colors']['door']))    
+    color_classes.append(np.array(hypes['colors']['shop']))
 
     # colors = []
     # for key in hypes['colors']:
