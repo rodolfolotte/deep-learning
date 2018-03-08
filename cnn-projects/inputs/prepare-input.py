@@ -6,7 +6,7 @@ from os.path import basename
 from random import shuffle
 
 # EXAMPLE:
-# python image2txt.py PATH/dataset/ PATH/annotation/ PATH/ruemonge2014/inputs/
+# python prepare-input.py PATH/dataset/ PATH/annotation/ PATH/ruemonge2014/inputs/ PERCENTAGE
 def create_test_list(image_folder, annotation_folder, output_test_list, extension):
 
     # Make pairs with only images that have its respective annotation
