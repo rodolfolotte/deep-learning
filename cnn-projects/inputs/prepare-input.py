@@ -48,7 +48,7 @@ if __name__ == '__main__':
     image_folder = sys.argv[1]
     annotation_folder = sys.argv[2]
     output = sys.argv[3]
-    percentage_val = sys.argv[4]
+    percentage_val = float(sys.argv[4])
 
     file_list = os.path.join(output, all_file)
     train_file = os.path.join(output, train_file)
@@ -73,8 +73,10 @@ if __name__ == '__main__':
 
     shuffle(files)
 
-    train = files[:-20]
-    val = files[-20:]
+    percentage_val = int(round(len(files) * (percentage_val/100)))
+    
+    train = files[:-percentage_val]
+    val = files[-percentage_val:]
 
     with open(train_file, 'w+') as file:
         for label in train:
