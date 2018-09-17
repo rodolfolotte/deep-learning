@@ -7,7 +7,7 @@ from random import shuffle
 
 # EXAMPLE:
 # python prepare-input.py PATH/dataset/ PATH/annotation/ PATH/ruemonge2014/inputs/ PERCENTAGE
-def create_test_list(image_folder, annotation_folder, output_test_list, extension):
+def create_test_list(image_folder, annotation_folder, output_test_list):
 
     # Make pairs with only images that have its respective annotation
     with open(output_test_list, 'w+') as output:
@@ -17,12 +17,12 @@ def create_test_list(image_folder, annotation_folder, output_test_list, extensio
 
             name, file_extension = os.path.splitext(image_name)
 
-            annotation_name = annotation_folder + name + ".png"
+            annotation_name = annotation_folder + name + file_extension
 
             if(not os.path.isfile(annotation_name)):
                 output.write(image_folder + filename + '\n')
 
-def create_file_list(image_folder, annotation_folder, output_file_list, extension):
+def create_file_list(image_folder, annotation_folder, output_file_list):
 
     # Make pairs with only images that have its respective annotation
     with open(output_file_list, 'w+') as output:
@@ -32,7 +32,7 @@ def create_file_list(image_folder, annotation_folder, output_file_list, extensio
 
             name, file_extension = os.path.splitext(image_name)
 
-            annotation_name = annotation_folder + name + ".png"
+            annotation_name = annotation_folder + name + file_extension
 
             if(os.path.isfile(annotation_name)):
                 output.write(image_folder + filename + ' ' + annotation_name + '\n')
@@ -64,10 +64,10 @@ if __name__ == '__main__':
         exit(1)
 
     if not os.path.exists(file_list):
-        create_file_list(image_folder, annotation_folder, file_list, ".png")
+        create_file_list(image_folder, annotation_folder, file_list)
 
     if not os.path.exists(test_file):
-        create_test_list(image_folder, annotation_folder, test_file, ".png")
+        create_test_list(image_folder, annotation_folder, test_file)
 
     files = [line for line in open(file_list)]
 
