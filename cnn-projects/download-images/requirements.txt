@@ -1,0 +1,4 @@
+opencv-python
+numpy>=1.11.1
+
+
