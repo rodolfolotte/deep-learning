@@ -1,15 +1,40 @@
-import os, sys
-import gdal
-import osgeo.osr as osr, ogr
-import numpy as np
-import geopandas as gp
+#!/usr/bin/env python
+
+"""
+Command-line routine to tile images and shapefiles according to desired width and heights
+"""
+
+__author__ = 'Rodolfo G. Lotte'
+__copyright__ = 'Copyright 2018, Rodolfo G. Lotte'
+__credits__ = ['Rodolfo G. Lotte']
+__example_raster__ = 'python tiling.py -choose 0 -image_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/original/not-tiled/ -tile_width 200 -tile_height 200 -output_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/original/tile/'
+__example_vector__ = 'python tiling.py -choose 1 -image_tiles /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/original/tile/ -shapefile /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/not-tiled/20170707_131443_1044.shp -output_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/tile/ -reproject 1'
+__license__ = 'MIT'
+__email__ = 'rodolfo.lotte@gmail.com'
+
 import argparse
+import os
+import sys
+import gdal
+import logging
+import geopandas as gp
+import osgeo.osr as osr
 
 from os.path import basename
 from shapely.geometry import Polygon
 
-# EXAMPLE: python tiling.py -choose 0 -image_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/original/not-tiled/ -tile_width 200 -tile_height 200 -output_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/original/tile/
-# EXAMPLE: python tiling.py -choose 1 -image_tiles /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/original/tile/ -shapefile /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/not-tiled/20170707_131443_1044.shp -output_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/tile/ -reproject 1 
+log = logging.getLogger('')
+log.setLevel(logging.INFO)
+format = logging.Formatter("[%(asctime)s] {%(filename)-15s:%(lineno)-4s} %(levelname)-5s: %(message)s ", datefmt='%Y.%m.%d %H:%M:%S')
+
+ch = logging.StreamHandler(sys.stdout)
+ch.setFormatter(format)
+
+fh = logging.handlers.RotatingFileHandler(filename='inputs.log', maxBytes=(1048576*5), backupCount=7)
+fh.setFormatter(format)
+
+log.addHandler(ch)
+log.addHandler(fh)
 
 # https://gis.stackexchange.com/questions/57834/how-to-get-raster-corner-coordinates-using-python-gdal-bindings
 def GetExtent(gt, cols, rows):
@@ -37,43 +62,50 @@ def ReprojectCoords(coords, src_srs, tgt_srs):
 
 def tilingImage(folder, width, height, outputFolder):    
     valid_images = [".jpg",".gif",".png",".tga",".tif"]
-    
+
+    logging.info("Tiling images in folder " + folder + "...")
     for f in os.listdir(folder):
         ext = os.path.splitext(f)[1]
 
         if ext.lower() not in valid_images:            
             continue
 
-        print(">> Image " + f + "...")
+        logging.info(">> Image " + f + "...")
         complete_path = os.path.join(folder, f)
         filename = basename(complete_path)        
         name, file_extension = os.path.splitext(filename)
 
         if(not os.path.isfile(complete_path)):
-            print( ">> Tile " + f + " does not exist. Check it and try again!")
+            logging.info( ">>>> Tile " + f + " does not exist. Check it and try again!")
             continue
         
         ds = gdal.Open(complete_path)   
         
         if ds is None:
-            print('>> Could not open image file!')
+            logging.info('>>>> Could not open image file!')
             sys.exit(1)
 
         rows = ds.RasterXSize
         cols = ds.RasterYSize
-        
-        # TODO: mesmo parcialmente ou totalmente fora, o tiling e salvo: nao deveria
-        # conforme em https://www.gdal.org/gdal_translate.html -epo -eco gera o erro mas mesmo assim salva
+
+        gdal.UseExceptions()
         for i in range(0, rows, width):
-            for j in range(0, cols, height):                                                   
-                com_string = "gdal_translate -of GTIFF -ot UInt16 -q -srcwin " + str(i) + " " + str(j) + " " + str(width) + " " + str(height) + " -eco -epo " + complete_path + " " + outputFolder + name + "_" + str(i) + "_" + str(j) + file_extension            
-                os.system(com_string)
+            for j in range(0, cols, height):
+               try:
+                   # https://www.gdal.org/gdal_translate.html
+                   gdal.Translate(outputFolder + name + "_" + str(i) + "_" + str(j) + file_extension, ds, format='GTIFF', srcWin=[i, j, width, height], outputType=gdal.GDT_UInt16, options=['-eco'])
+
+               except RuntimeError as error:
+                   logging.info(">>>> Completely outside the image. " + error + " Not saved!")
+                   pass
+
 
 
 def tilingShape(imagesFolder, shpReferenceFolder, outputFolder, reproject):
     valid_vectors = [".shp"]
     valid_images = [".jpg",".gif",".png",".tga",".tif"]
-        
+
+    logging.info("Tiling vectors in folder " + shpReferenceFolder + "...")
     for f in os.listdir(shpReferenceFolder):
         ext = os.path.splitext(f)[1]
         
@@ -83,16 +115,16 @@ def tilingShape(imagesFolder, shpReferenceFolder, outputFolder, reproject):
         complete_shapefile_path = os.path.join(shpReferenceFolder, f)
 
         if(not os.path.isfile(complete_shapefile_path)):
-            print( ">> Vector tile " + f + " does not exist. Check it and try again!")
+            logging.info( ">> Vector tile " + f + " does not exist. Check it and try again!")
             continue
         else:             
-            shapefile_name, shapefile_extension = os.path.splitext(f)
+            # shapefile_name, shapefile_extension = os.path.splitext(f)
 
-            print(">> Tiling vector " + f + " repecting to the tiles extends in " + imagesFolder)
+            logging.info(">> Tiling vector " + f + " respecting to the tiles extends in " + imagesFolder)
             for im in os.listdir(imagesFolder):
                 ext2 = os.path.splitext(im)[1]
                 
-                if ext2.lower() not in valid_images:            
+                if ext2.lower() not in valid_images:
                     continue
 
                 complete_path = os.path.join(imagesFolder, im)
@@ -101,7 +133,7 @@ def tilingShape(imagesFolder, shpReferenceFolder, outputFolder, reproject):
                                 
                 tile = gdal.Open(complete_path)
 
-                tile_projection = tile.GetProjectionRef()                
+                # tile_projection = tile.GetProjectionRef()
                 gt = tile.GetGeoTransform()                         
                 cols_tile = tile.RasterXSize
                 rows_tile = tile.RasterYSize
@@ -150,8 +182,6 @@ if __name__=='__main__':
     result = parser.parse_args()
 
     if(result.choose == 0):
-        print("Tiling image...")
         tilingImage(result.imageFolder, result.width, result.height, result.outputFolder)
     elif(result.choose == 1):
-        print("Tiling shapefile...")
         tilingShape(result.imageTiles, result.shapefileReferenceFolder, result.outputFolder, result.reproject)

@@ -1,17 +1,24 @@
-import os, sys
+#!/usr/bin/env python
+
+"""
+Command-line routine to transform simple shapefiles format in raster, based on the color specified in this code
+"""
+
+__author__ = 'Rodolfo G. Lotte'
+__copyright__ = 'Copyright 2018, Rodolfo G. Lotte'
+__credits__ = ['Rodolfo G. Lotte']
+__usage__ = 'python shp2raster.py -shapefile SHAPEFILE_FOLDER -output_foler OUTPUT_SHP_RASTER -tile_width INT_SIZE_OF_THE_RASTER_IN_COLUMNS -tile_height INT_SIZE_OF_THE_RASTER_IN_ROWS'
+__example__ = 'python shp2raster.py -shapefile /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/tile-shp2/ -output_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/tile2/ -tile_width 400 -tile_height 400'
+__license__ = 'MIT'
+__email__ = 'rodolfo.lotte@gmail.com'
+
 import argparse
-import gdal
+import logging
+import os
+import sys
+
 import shapefile
-import pngcanvas
-import osgeo.osr as osr, ogr
-
-from os.path import basename
 from PIL import Image, ImageDraw
-from shapely.geometry import Polygon
-from shapely.geometry import Point
-
-# USAGE: python shp2raster.py -shapefile SHAPEFILE_FOLDER -output_foler OUTPUT_SHP_RASTER -tile_width INT_SIZE_OF_THE_RASTER_IN_COLUMNS -tile_height INT_SIZE_OF_THE_RASTER_IN_ROWS
-# EXAMPLE: python shp2raster.py -shapefile /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/tile-shp2/ -output_folder /home/lotte/Bit/lotte/personal/sccon/deforestation-planet/data/annotation/tile2/ -tile_width 400 -tile_height 400
 
 classes = {    
     "def": [255,255,0],
@@ -19,6 +26,19 @@ classes = {
     "cloud": [255,255,255],
     "shadow": [128,128,128]
 }
+
+log = logging.getLogger('')
+log.setLevel(logging.INFO)
+format = logging.Formatter("[%(asctime)s] {%(filename)-15s:%(lineno)-4s} %(levelname)-5s: %(message)s ", datefmt='%Y.%m.%d %H:%M:%S')
+
+ch = logging.StreamHandler(sys.stdout)
+ch.setFormatter(format)
+
+fh = logging.handlers.RotatingFileHandler(filename='inputs.log', maxBytes=(1048576*5), backupCount=7)
+fh.setFormatter(format)
+
+log.addHandler(ch)
+log.addHandler(fh)
 
 def sliceArray(array, positions):
     new_arrays=[]     
@@ -33,6 +53,7 @@ def sliceArray(array, positions):
 def createPNGfromSHP(shapefileFolder, outputFolder, iwidth, iheight):
     valid_files = [".shp"]
 
+    logging.info('>> Creating PNG from SHP...')
     for f in os.listdir(shapefileFolder):        
         name, file_extension = os.path.splitext(f)
 
@@ -41,7 +62,7 @@ def createPNGfromSHP(shapefileFolder, outputFolder, iwidth, iheight):
 
         r = shapefile.Reader(shapefileFolder + "/" + f)
         if not r:
-            print('>> Error: could not open the shapefile')
+            logging.info('>>>> Error: could not open the shapefile')
 
         xdist = r.bbox[2] - r.bbox[0]
         ydist = r.bbox[3] - r.bbox[1]    
@@ -72,7 +93,7 @@ def createPNGfromSHP(shapefileFolder, outputFolder, iwidth, iheight):
                     draw.polygon(pixels, outline=None, fill="rgb(" + str(classes[record[1]][0]) + ", " + str(classes[record[1]][1]) + ", " + str(classes[record[1]][2]) + ")")
 
         img.save(outputFolder + "/" + name + ".png")
-        print(">> Raster (png) respect to vector " + f + " save successfully!")
+        logging.info(">> Raster (png) respect to vector " + f + " save successfully!")
 
 
 if __name__=='__main__':

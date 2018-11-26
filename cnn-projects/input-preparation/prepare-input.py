@@ -1,6 +1,20 @@
-import numpy as np
-import sys, os
-import skimage.io as io
+#!/usr/bin/env python
+
+"""
+Command-line routine that through two folders: original images and ground-truth, build validation, testing and training .txt files. Each line in these files represents pairs of paths: original image SPACE image reference. In the training file, all the pairs of images to be used in the training of the neural model are listed, while in the validation file, images are placed for validation according to the percentage specified
+"""
+
+__author__ = 'Rodolfo G. Lotte'
+__copyright__ = 'Copyright 2018, Rodolfo G. Lotte'
+__credits__ = ['Rodolfo G. Lotte']
+__license__ = 'MIT'
+__usage__ = 'python prepare-input.py -image_folder PATH/dataset/ -annotation_folder PATH/annotation/ -output_folder PATH/inputs/ -percentage PERCENTAGE'
+__email__ = 'rodolfo.lotte@gmail.com'
+
+import logging
+import os
+import sys
+import argparse
 
 from os.path import basename
 from random import shuffle
@@ -8,8 +22,18 @@ from random import shuffle
 valid_images = [".jpg",".gif",".png",".tga",".tif"]
 desired_ann_ext = ".png"
 
-# EXAMPLE:
-# python prepare-input.py -image_folder PATH/dataset/ -annotation_folder PATH/annotation/ -output_folder PATH/inputs/ -percentage PERCENTAGE
+log = logging.getLogger('')
+log.setLevel(logging.INFO)
+format = logging.Formatter("[%(asctime)s] {%(filename)-15s:%(lineno)-4s} %(levelname)-5s: %(message)s ", datefmt='%Y.%m.%d %H:%M:%S')
+
+ch = logging.StreamHandler(sys.stdout)
+ch.setFormatter(format)
+
+fh = logging.handlers.RotatingFileHandler(filename='inputs.log', maxBytes=(1048576*5), backupCount=7)
+fh.setFormatter(format)
+
+log.addHandler(ch)
+log.addHandler(fh)
 
 def check_file(dir, prefix):
     for s in os.listdir(dir):        
@@ -20,8 +44,6 @@ def check_file(dir, prefix):
 
 
 def create_test_list(image_folder, annotation_folder, output_test_list):
-
-    # Make pairs with only images that have its respective annotation
     with open(output_test_list, 'w+') as output:
         for filename in os.listdir(image_folder):
             ext2 = os.path.splitext(filename)[1]
@@ -33,15 +55,11 @@ def create_test_list(image_folder, annotation_folder, output_test_list):
             image_name = basename(absolute_image_name)
             name, file_extension = os.path.splitext(image_name)
 
-            annotation_name = annotation_folder + name + desired_ann_ext
-
             if(check_file(annotation_folder, name)):                
                 output.write(image_folder + filename + '\n')
 
 
 def create_file_list(image_folder, annotation_folder, output_file_list):
-
-    # Make pairs with only images that have its respective annotation
     with open(output_file_list, 'w+') as output:
         for filename in os.listdir(image_folder):
             ext2 = os.path.splitext(filename)[1]
@@ -72,11 +90,11 @@ def prepareInputs(image_folder, annotation_folder, output, percentage_val):
     test_file = os.path.join(output, test_file)
 
     if not os.path.exists(image_folder):
-        print("Image folder not found: %s", image_folder)
+        logging.info(">> Image folder not found: %s", image_folder)
         exit(1)
 
     if not os.path.exists(annotation_folder):
-        print("Annotation folder not found: %s", annotation_folder)
+        logging.info(">> Annotation folder not found: %s", annotation_folder)
         exit(1)
 
     # if not os.path.exists(file_list):
@@ -102,6 +120,8 @@ def prepareInputs(image_folder, annotation_folder, output, percentage_val):
         for label in val:
             file.write(label)
 
+    logging.info(">> CNN inputs created successfully!")
+
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Prepare input files (txts) for supervised neural network procedures')
@@ -113,5 +133,5 @@ if __name__=='__main__':
     
     result = parser.parse_args()
 
-    print("Preparing inputs...")
+    logging.info("Preparing inputs...")
     prepareInputs(result.imageFolder, result.annotationFolder, result.outputFolder, result.percentage)
