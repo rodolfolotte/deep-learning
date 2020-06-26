@@ -6,7 +6,7 @@ import time
 import argparse
 import settings
 import sm_dataset as dataset
-import sm_training as training
+import sm_model as model
 
 from coloredlogs import ColoredFormatter
 
@@ -48,12 +48,18 @@ def main(arguments):
     if eval(arguments.transfer_dir_to_s3):
         dataset_obj.prepare_dirs_in_s3()
 
-    training_obj = training.Training()
-    training_obj.get_docker_dl_image()
-    training_obj.get_estimator(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
-    training_obj.setup_hyperparameter(len(glob.glob1(dataset_obj.train_path, "*.jpg")))
-    training_obj.train(dataset_obj.bucket, dataset_obj.train_channel, dataset_obj.validation_channel,
-                       dataset_obj.train_annotation_channel, dataset_obj.validation_annotation_channel)
+    model_obj = model.Training()
+    if eval(arguments.training):
+        model_obj.get_docker_dl_image()
+        model_obj.get_estimator(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
+        model_obj.setup_hyperparameter(len(glob.glob1(dataset_obj.train_path, "*.jpg")))
+        model_obj.train(dataset_obj.bucket, dataset_obj.train_channel, dataset_obj.validation_channel,
+                        dataset_obj.train_annotation_channel, dataset_obj.validation_annotation_channel)
+
+    if eval(arguments.inference):
+        model_obj.infer('/home/rodolfo/Desktop/do.jpg', settings.ENDPOINT, True)
+        model_obj.infer('/home/rodolfo/Desktop/tre.jpg', settings.ENDPOINT, True)
+        model_obj.infer('/home/rodolfo/Desktop/plane.jpg', settings.ENDPOINT, True)
 
     end_time = time.time()
     logging.info("Whole process completed! [Time: {0:.5f} seconds]!".format(end_time - start_time))
@@ -62,8 +68,13 @@ def main(arguments):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='DESCRIPTION')
-    parser.add_argument('-prepare_local_dir', action="store", dest='prepare_local_dir', help='Print log of processing')
-    parser.add_argument('-transfer_dir_to_s3', action="store", dest='transfer_dir_to_s3', help='Print log of processing')
+    parser.add_argument('-prepare_local_dir', action="store", dest='prepare_local_dir',
+                        help='Boolean to prepare an unorganized dataset, in a standard and well organized structure')
+    parser.add_argument('-transfer_dir_to_s3', action="store", dest='transfer_dir_to_s3',
+                        help='Boolean to transfer local training dataset, to S3 bucket')
+    parser.add_argument('-training', action="store", dest='training', help='Boolean for training or not the DL model')
+    parser.add_argument('-inference', action="store", dest='inference',
+                        help='Boolean for infering over a specific folder, to be specified in settings.py')
     parser.add_argument('-verbose', action="store", dest='verbose', help='Print log of processing')
     args = parser.parse_args()
 

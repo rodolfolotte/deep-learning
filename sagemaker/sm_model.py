@@ -1,7 +1,13 @@
+import io
 import sagemaker
+import PIL as pillow
+import numpy as np
+import matplotlib.pyplot as plt
 import settings
+import boto3
 
 from sagemaker.amazon.amazon_estimator import get_image_uri
+from sagemaker.amazon.record_pb2 import Record
 
 
 class Training:
@@ -9,6 +15,7 @@ class Training:
     def __init__(self):
         self.training_image = None
         self.estimator = None
+        self.predictor = None
 
     def get_docker_dl_image(self):
         """Get the docker image exclusively for semantic segmentation uses"""
@@ -74,3 +81,53 @@ class Training:
                          'validation_annotation': validation_annotation}
 
         self.estimator.fit(inputs=data_channels, logs=True)
+        self.predictor = self.estimator.deploy(initial_instance_count=1, instance_type=settings.TRAINING_AWS_INSTANCE)
+
+    def show_image(self, image):
+        """ """
+        mask = np.array(pillow.Image.open(io.BytesIO(image)))
+        plt.imshow(mask, vmin=0, vmax=settings.HYPER['num_classes'] - 1, cmap='jet')
+        plt.show()
+
+    def delete_endpoint(self, endpoint):
+        """
+        :param endpoint:
+        :return:
+        """
+        sagemaker.Session().delete_endpoint(endpoint=endpoint)
+
+    def infer(self, filename, endpoint, show_image):
+        """
+        :param filename:
+        :param endpoint:
+        :param show_image:
+        :return:
+        """
+        runtime = boto3.Session().client('sagemaker-runtime')
+
+        image = pillow.Image.open(filename)
+        image.thumbnail([800, 600], pillow.Image.ANTIALIAS)
+        image.save(filename, "JPEG")
+
+        with open(filename, 'rb') as f:
+            payload = f.read()
+            payload = bytearray(payload)
+
+        response = runtime.invoke_endpoint(EndpointName=endpoint, ContentType='application/x-image', Body=payload)
+        results_file = 'results.rec'
+        with open(results_file, 'wb') as f:
+            f.write(response['Body'].read())
+
+        rec = Record()
+        values = list(rec.features["target"].float32_tensor.values)
+        shape = list(rec.features["shape"].int32_tensor.values)
+        shape = np.squeeze(shape)
+        mask = np.reshape(np.array(values), shape)
+        mask = np.squeeze(mask, axis=0)
+        pred_map = np.argmax(mask, axis=0)
+
+        if show_image is True:
+            self.show_image(pred_map)
+
+        plt.imshow(pred_map, vmin=0, vmax=settings.HYPER['num_classes'] - 1, cmap='jet')
+        plt.savefig(filename)

@@ -3,8 +3,9 @@ from decouple import config
 DATASET_BASE_PATH = config('DATASET_BASE_PATH', default='/data/lotte/pascalvoc/original')
 STRUCTURED_DATASET_DIR = config('STRUCTURED_DATASET_DIR', default='/data/lotte/pascalvoc/modified')
 
-TRAINING_AWS_INSTANCE = 'ml.p3.8xlarge'
+TRAINING_AWS_INSTANCE = 'ml.p3.2xlarge'
 PERSONAL_AWS_ROLE = 'arn:aws:iam::493849984591:role/AmazonSageMaker'
+ENDPOINT = 'ss-notebook-demo-2020-06-19-18-14-21-048'
 
 """
     backbone: This is the encoder. The options are 'resnet-50' and 'resnet-101'
