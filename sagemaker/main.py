@@ -56,10 +56,14 @@ def main(arguments):
         model_obj.train(dataset_obj.bucket, dataset_obj.train_channel, dataset_obj.validation_channel,
                         dataset_obj.train_annotation_channel, dataset_obj.validation_annotation_channel)
 
+    if eval(arguments.endpoint):
+        model_obj.get_docker_dl_image()
+        model_obj.create_endpoint(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
+
     if eval(arguments.inference):
         model_obj.infer('/home/rodolfo/Desktop/do.jpg', settings.ENDPOINT, True)
-        model_obj.infer('/home/rodolfo/Desktop/tre.jpg', settings.ENDPOINT, True)
         model_obj.infer('/home/rodolfo/Desktop/plane.jpg', settings.ENDPOINT, True)
+        model_obj.infer('/home/rodolfo/Desktop/cat.jpg', settings.ENDPOINT, True)
 
     end_time = time.time()
     logging.info("Whole process completed! [Time: {0:.5f} seconds]!".format(end_time - start_time))
@@ -73,6 +77,7 @@ if __name__ == '__main__':
     parser.add_argument('-transfer_dir_to_s3', action="store", dest='transfer_dir_to_s3',
                         help='Boolean to transfer local training dataset, to S3 bucket')
     parser.add_argument('-training', action="store", dest='training', help='Boolean for training or not the DL model')
+    parser.add_argument('-endpoint', action="store", dest='endpoint', help='Boolean to create an sagemaker endpoint')
     parser.add_argument('-inference', action="store", dest='inference',
                         help='Boolean for infering over a specific folder, to be specified in settings.py')
     parser.add_argument('-verbose', action="store", dest='verbose', help='Print log of processing')

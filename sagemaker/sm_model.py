@@ -1,10 +1,12 @@
-import io
+import os
 import sagemaker
 import PIL as pillow
 import numpy as np
 import matplotlib.pyplot as plt
 import settings
 import boto3
+import mxnet as mx
+import sm_utils as utils
 
 from sagemaker.amazon.amazon_estimator import get_image_uri
 from sagemaker.amazon.record_pb2 import Record
@@ -26,7 +28,14 @@ class Training:
         """
         Train the segmentation algorithm. Create a sageMaker.estimator.Estimator object. This estimator will launch
         the training job "ss-notebook-demo". Using a GPU instance (ml.p3.2xlarge) to train.
+
+        :param sess:
+        :param role:
+        :param output:
+        :return:
         """
+        base_job_name = settings.HYPER['model'] + "-" + settings.HYPER['algorithm']
+
         self.estimator = sagemaker.estimator.Estimator(self.training_image,
                                                        role,
                                                        train_instance_count=1,
@@ -34,12 +43,11 @@ class Training:
                                                        train_volume_size=50,
                                                        train_max_run=360000,
                                                        output_path=output,
-                                                       base_job_name='ss-notebook-demo',
+                                                       base_job_name=base_job_name,
                                                        sagemaker_session=sess)
 
     def setup_hyperparameter(self, num_training_samples):
         """
-        :param estimator:
         :param num_training_samples:
         :return:
         """
@@ -58,7 +66,14 @@ class Training:
                                            num_training_samples=num_training_samples)
 
     def train(self, bucket, train_channel, validation_channel, train_annotation_channel, validation_annotation_channel):
-        """ """
+        """
+        :param bucket:
+        :param train_channel:
+        :param validation_channel:
+        :param train_annotation_channel:
+        :param validation_annotation_channel:
+        :return:
+        """
         distribution = 'FullyReplicated'
 
         s3_train_data = 's3://{}/{}'.format(bucket, train_channel)
@@ -81,20 +96,7 @@ class Training:
                          'validation_annotation': validation_annotation}
 
         self.estimator.fit(inputs=data_channels, logs=True)
-        self.predictor = self.estimator.deploy(initial_instance_count=1, instance_type=settings.TRAINING_AWS_INSTANCE)
-
-    def show_image(self, image):
-        """ """
-        mask = np.array(pillow.Image.open(io.BytesIO(image)))
-        plt.imshow(mask, vmin=0, vmax=settings.HYPER['num_classes'] - 1, cmap='jet')
-        plt.show()
-
-    def delete_endpoint(self, endpoint):
-        """
-        :param endpoint:
-        :return:
-        """
-        sagemaker.Session().delete_endpoint(endpoint=endpoint)
+        # self.predictor = self.create_endpoint(self.estimator)
 
     def infer(self, filename, endpoint, show_image):
         """
@@ -103,6 +105,9 @@ class Training:
         :param show_image:
         :return:
         """
+        output_filename = os.path.splitext(filename)[0]
+        output_filename += '_inference.png'
+
         runtime = boto3.Session().client('sagemaker-runtime')
 
         image = pillow.Image.open(filename)
@@ -119,6 +124,8 @@ class Training:
             f.write(response['Body'].read())
 
         rec = Record()
+        recordio = mx.recordio.MXRecordIO(results_file, 'r')
+        protobuf = rec.ParseFromString(recordio.read())
         values = list(rec.features["target"].float32_tensor.values)
         shape = list(rec.features["shape"].int32_tensor.values)
         shape = np.squeeze(shape)
@@ -127,7 +134,26 @@ class Training:
         pred_map = np.argmax(mask, axis=0)
 
         if show_image is True:
-            self.show_image(pred_map)
+            utils_obj = utils.Utils()
+            utils_obj.show_image(pred_map)
 
         plt.imshow(pred_map, vmin=0, vmax=settings.HYPER['num_classes'] - 1, cmap='jet')
-        plt.savefig(filename)
+        plt.savefig(output_filename)
+
+    def delete_endpoint(self, endpoint):
+        """
+        :param endpoint:
+        :return:
+        """
+        sagemaker.Session().delete_endpoint(endpoint=endpoint)
+
+    def create_endpoint(self, sess, role, model):
+        """
+        :param sess:
+        :param role:
+        :param model:
+        :return:
+        """
+        model += settings.MODEL_PATH
+        sm_model = sagemaker.Model(model_data=model, image=self.training_image, role=role, sagemaker_session=sess)
+        sm_model.deploy(initial_instance_count=1, instance_type=settings.TRAINING_AWS_INSTANCE)
