@@ -39,28 +39,28 @@ def main(arguments):
                                   train_annotation_path, validation_annotation_path,
                                   'semantic-segmentation-demo')
 
-    if eval(arguments.prepare_local_dir):
+    if (arguments.prepare_local_dir is not None) and (eval(arguments.prepare_local_dir)):
         dataset_obj.prepare_default_dir_structure('VOCdevkit/VOC2012', 'ImageSets/Segmentation/train.txt',
                                                   'ImageSets/Segmentation/val.txt',
                                                   'JPEGImages',
                                                   'SegmentationClass')
 
-    if eval(arguments.transfer_dir_to_s3):
+    if (arguments.transfer_dir_to_s3 is not None) and (eval(arguments.transfer_dir_to_s3)):
         dataset_obj.prepare_dirs_in_s3()
 
     model_obj = model.Training()
-    if eval(arguments.training):
-        model_obj.get_docker_dl_image()
+    if (arguments.training is not None) and (eval(arguments.training)):
+        model_obj.get_docker_dl_image(dataset_obj.sess)
         model_obj.get_estimator(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
         model_obj.setup_hyperparameter(len(glob.glob1(dataset_obj.train_path, "*.jpg")))
-        model_obj.train(dataset_obj.bucket, dataset_obj.train_channel, dataset_obj.validation_channel,
+        model_obj.train(dataset_obj.sess, dataset_obj.bucket, dataset_obj.train_channel, dataset_obj.validation_channel,
                         dataset_obj.train_annotation_channel, dataset_obj.validation_annotation_channel)
 
-    if eval(arguments.endpoint):
-        model_obj.get_docker_dl_image()
-        model_obj.create_endpoint(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
+    if (arguments.endpoint is not None) and (eval(arguments.endpoint)):
+        model_obj.get_docker_dl_image(dataset_obj.sess)
+        model_obj.create_endpoint_from_a_model_in_s3(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
 
-    if eval(arguments.inference):
+    if (arguments.inference is not None) and (eval(arguments.inference)):
         model_obj.infer('/home/rodolfo/Desktop/do.jpg', settings.ENDPOINT, True)
         model_obj.infer('/home/rodolfo/Desktop/plane.jpg', settings.ENDPOINT, True)
         model_obj.infer('/home/rodolfo/Desktop/cat.jpg', settings.ENDPOINT, True)

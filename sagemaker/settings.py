@@ -7,6 +7,7 @@ TRAINING_AWS_INSTANCE = 'ml.p3.2xlarge'
 PERSONAL_AWS_ROLE = 'arn:aws:iam::493849984591:role/AmazonSageMaker'
 ENDPOINT = 'semantic-segmentation-2020-06-28-22-30-34-529'
 MODEL_PATH = '/ss-notebook-demo-2020-06-27-04-28-25-905/output/model.tar.gz'
+INFERENCE_FOLDER = "/home/rodolfo/"
 
 """
     backbone: This is the encoder. The options are 'resnet-50' and 'resnet-101'

@@ -19,9 +19,8 @@ class Training:
         self.estimator = None
         self.predictor = None
 
-    def get_docker_dl_image(self):
+    def get_docker_dl_image(self, sess):
         """Get the docker image exclusively for semantic segmentation uses"""
-        sess = sagemaker.Session()
         self.training_image = get_image_uri(sess.boto_region_name, 'semantic-segmentation', repo_version="latest")
 
     def get_estimator(self, sess, role, output):
@@ -65,8 +64,9 @@ class Training:
                                            early_stopping_min_epochs=settings.HYPER['early_stopping_min_epochs'],
                                            num_training_samples=num_training_samples)
 
-    def train(self, bucket, train_channel, validation_channel, train_annotation_channel, validation_annotation_channel):
+    def train(self, sess, bucket, train_channel, validation_channel, train_annotation_channel, validation_annotation_channel):
         """
+        :param sess:
         :param bucket:
         :param train_channel:
         :param validation_channel:
@@ -96,7 +96,7 @@ class Training:
                          'validation_annotation': validation_annotation}
 
         self.estimator.fit(inputs=data_channels, logs=True)
-        # self.predictor = self.create_endpoint(self.estimator)
+        self.predictor = self.create_endpoint(self.estimator)
 
     def infer(self, filename, endpoint, show_image):
         """
@@ -147,13 +147,22 @@ class Training:
         """
         sagemaker.Session().delete_endpoint(endpoint=endpoint)
 
-    def create_endpoint(self, sess, role, model):
+    def create_endpoint(self, estimator):
+        """
+        :param estimator:
+        :return:
+        """
+        predictor = estimator.deploy(initial_instance_count=1, instance_type=settings.TRAINING_AWS_INSTANCE)
+        return predictor
+
+    def create_endpoint_from_a_model_in_s3(self, sess, role, model_path_in_s3):
         """
         :param sess:
         :param role:
-        :param model:
+        :param model_path_in_s3:
         :return:
         """
-        model += settings.MODEL_PATH
-        sm_model = sagemaker.Model(model_data=model, image=self.training_image, role=role, sagemaker_session=sess)
+        model_path_in_s3 += settings.MODEL_PATH
+        sm_model = sagemaker.Model(model_data=model_path_in_s3, image=self.training_image,
+                                   role=role, sagemaker_session=sess)
         sm_model.deploy(initial_instance_count=1, instance_type=settings.TRAINING_AWS_INSTANCE)
