@@ -3,7 +3,8 @@
 
 import numpy as np
 import skimage.io as io
-import sys, os
+import os
+import sys
 import tensorflow as tf
 
 from PIL import Image
@@ -124,10 +125,10 @@ def check_match(original_images_path, reconstructed_images_path):
 	    img_pair_to_compare, annotation_pair_to_compare = zip(original_pair, reconstructed_pair)
 
 	    if(not np.allclose(*img_pair_to_compare)):	    	
-	    	print(">> The original image " + original_pair + " is not the same as the reconstructed: " + reconstructed_pair + " !")
+	    	print(">> The original raster " + original_pair + " is not the same as the reconstructed: " + reconstructed_pair + " !")
 
 		if(not np.allclose(*annotation_pair_to_compare)):			
-			print(">> The annotated image " + original_pair + " is not the same as the reconstructed: " + reconstructed_pair + " !")
+			print(">> The annotated raster " + original_pair + " is not the same as the reconstructed: " + reconstructed_pair + " !")
 
 
 if __name__ == "__main__":

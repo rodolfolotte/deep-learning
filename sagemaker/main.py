@@ -56,14 +56,17 @@ def main(arguments):
         model_obj.train(dataset_obj.sess, dataset_obj.bucket, dataset_obj.train_channel, dataset_obj.validation_channel,
                         dataset_obj.train_annotation_channel, dataset_obj.validation_annotation_channel)
 
-    if (arguments.endpoint is not None) and (eval(arguments.endpoint)):
+    """USAGE: python main.py -endpoint s3://sagemaker-us-east-1-493849984591/semantic-segmentation-demo/
+              output/ss-notebook-demo-2020-06-27-04-28-25-905/output/model.tar.gz"""
+    if arguments.endpoint is not None:
         model_obj.get_docker_dl_image(dataset_obj.sess)
-        model_obj.create_endpoint_from_a_model_in_s3(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, dataset_obj.output)
+        model_obj.create_endpoint_from_a_model_in_s3(dataset_obj.sess, settings.PERSONAL_AWS_ROLE, arguments.endpoint)
 
     if (arguments.inference is not None) and (eval(arguments.inference)):
-        model_obj.infer('/home/rodolfo/Desktop/do.jpg', settings.ENDPOINT, True)
-        model_obj.infer('/home/rodolfo/Desktop/plane.jpg', settings.ENDPOINT, True)
-        model_obj.infer('/home/rodolfo/Desktop/cat.jpg', settings.ENDPOINT, True)
+        for file in os.listdir(settings.INFERENCE_FOLDER):
+            if file.endswith(".jpg"):
+                model_obj.infer(os.path.join(settings.INFERENCE_FOLDER, file), settings.INFERENCE_OUTPUT,
+                                settings.ENDPOINT, False)
 
     end_time = time.time()
     logging.info("Whole process completed! [Time: {0:.5f} seconds]!".format(end_time - start_time))
@@ -77,7 +80,7 @@ if __name__ == '__main__':
     parser.add_argument('-transfer_dir_to_s3', action="store", dest='transfer_dir_to_s3',
                         help='Boolean to transfer local training dataset, to S3 bucket')
     parser.add_argument('-training', action="store", dest='training', help='Boolean for training or not the DL model')
-    parser.add_argument('-endpoint', action="store", dest='endpoint', help='Boolean to create an sagemaker endpoint')
+    parser.add_argument('-endpoint', action="store", dest='endpoint', help='String with a complete S3 model path')
     parser.add_argument('-inference', action="store", dest='inference',
                         help='Boolean for infering over a specific folder, to be specified in settings.py')
     parser.add_argument('-verbose', action="store", dest='verbose', help='Print log of processing')

@@ -98,15 +98,17 @@ class Training:
         self.estimator.fit(inputs=data_channels, logs=True)
         self.predictor = self.create_endpoint(self.estimator)
 
-    def infer(self, filename, endpoint, show_image):
+    def infer(self, filename, output_folder, endpoint, show_image):
         """
         :param filename:
+        :param output_folder:
         :param endpoint:
         :param show_image:
         :return:
         """
         output_filename = os.path.splitext(filename)[0]
-        output_filename += '_inference.png'
+        output_filename = os.path.basename(output_filename)
+        output_filename = os.path.join(output_folder, output_filename + '_inference.png')
 
         runtime = boto3.Session().client('sagemaker-runtime')
 
@@ -162,7 +164,6 @@ class Training:
         :param model_path_in_s3:
         :return:
         """
-        model_path_in_s3 += settings.MODEL_PATH
         sm_model = sagemaker.Model(model_data=model_path_in_s3, image=self.training_image,
                                    role=role, sagemaker_session=sess)
         sm_model.deploy(initial_instance_count=1, instance_type=settings.TRAINING_AWS_INSTANCE)
