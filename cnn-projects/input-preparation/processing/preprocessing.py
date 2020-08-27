@@ -4,7 +4,9 @@ import logging
 import settings
 import warnings
 import numpy as np
+import matplotlib.pyplot as plt
 
+from scipy.misc import imread
 from osgeo import gdal
 from osgeo.gdalconst import *
 
@@ -14,6 +16,9 @@ class Processing:
     """
 
     def __init__(self):
+        pass
+
+    def pca(self, image):
         pass
 
     def stacking(self, safe_folder, output_path, file_pattern):
